@@ -53,7 +53,7 @@ class Stepper {
 
 
     styleStepNumber(element, index, isActive, isCompleted) {
-        element.style.backgroundColor = isActive || isCompleted ? "#26374A" : "#6F6F6F";
+        element.style.backgroundColor = isActive || isCompleted ? "#1C578A" : "#757575";
         element.style.color = "#FFFFFF";
 
         if (index === 0 && !isCompleted) {
@@ -200,26 +200,7 @@ class Stepper {
 }
 class Step1Handler {
     constructor() {
-        this.businessTypeDropdown = document.getElementById("s1biz-accountype");
-        this.individualTaxTypeDropdown = document.getElementById("s1ind-taxtype")
-        this.accountFieldset = document.getElementById("s1biz-bn-fieldset");
-        this.indThirdPartyNumber = document.getElementById("s1-ind-thirdpartyref-fieldset");
-        this.bizThirdPartyNumber = document.getElementById("s1-biz-thirdpartyref-fieldset");
-        
-        this.bn9Field = document.getElementById("s1biz-bn-wrapper");
-        this.bnFreeFormField = document.getElementById("s1biz-bnfreeform")
-        this.prefixDiv = this.accountFieldset.querySelector(".static");
-
-        this.individualTaxTypeDropdown.addEventListener("change", () => {
-           
-                this.thirdPartyDisplay(1, this.individualTaxTypeDropdown.value);
-            
-        });
-        this.businessTypeDropdown.addEventListener("change", () => {
-           
-                this.updateAccountField(this.businessTypeDropdown.value);
-                this.thirdPartyDisplay(2, this.businessTypeDropdown.value);
-        });
+     
     }
 
     thirdPartyDisplay(flow, selectedValue) {
@@ -1626,18 +1607,18 @@ document.addEventListener('DOMContentLoaded', () => {
         new CharacterCounter(textarea);
     });
 
-    //Add asterisks to all required fields
-    const requiredInputs = document.querySelectorAll('.required-label');
-    requiredInputs.forEach(input => {
-        if (input) {
+    // //Add asterisks to all required fields
+    // const requiredInputs = document.querySelectorAll('.required-label');
+    // requiredInputs.forEach(input => {
+    //     if (input) {
 
-            const asterisk = document.createElement('span');
-            asterisk.textContent = '* ';
-            asterisk.classList.add('label-ast');
+    //         const asterisk = document.createElement('span');
+    //         asterisk.textContent = '* ';
+    //         asterisk.classList.add('label-ast');
 
-            input.insertBefore(asterisk, input.firstChild);
-        }
-    });
+    //         input.insertBefore(asterisk, input.firstChild);
+    //     }
+    // });
 
 
     //Accordion functionality

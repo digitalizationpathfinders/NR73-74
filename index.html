@@ -1,455 +1,630 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Notice of objections</title>
-      <link rel="stylesheet" href="styles/base.css">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   </head>
-   <body>
-      <header class="header">
-         <div class="top-ctn">
-            <div class="top-content">
-               <div class="brand">
-                  <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="Government of Canada">
-               </div>
-               <a href="#" class="language-switch">Français</a>
-            </div>
-         </div>
-         <div class="bottom-ctn">
-            <div class="bottom-content">
-               <a href="#">Canada.ca</a>
-               <span class="material-icons">chevron_right</span>
-               <a href="#">Taxes</a>
-               <span class="material-icons">chevron_right</span>
-               <a href="#">Determination of residency status</a>
-
-            </div>
-         </div>
-      </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice of objections</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <div class="top-ctn">
+        <div class="top-content">
+          <div class="brand">
+            <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="Government of Canada">
+          </div>
+          <a href="#" class="language-switch">Français</a>
+        </div>
+      </div>
+      <div class="bottom-ctn">
+        <div class="bottom-content">
+          <a href="#">Canada.ca</a>
+          <span class="material-icons">chevron_right</span>
+          <a href="#">Taxes</a>
+          <span class="material-icons">chevron_right</span>
+          <a href="#">Determination of residency status</a>
+        </div>
+      </div>
+    </header>
+    <div class="page-container">
+      <h1>Determination of residency status</h1>
       <main class="stepper">
-         <h1>Notice of objection</h1>
-         <section class="step active" id="step-0">
-            <div class="step-header">
-               <div class="step-number">
-                  <span class="step-icon material-icons">check</span>
-               </div>
-               <h2>Before you begin</h2>
+        <section class="step" id="step-0">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
             </div>
-            <div class="step-content">
-               <div class="container">
-                  <p>This form can be used to file an objection if you disagree with what CRA has assessed on your individual or business taxes such as an amount owing, benefits, credits, or savings plan information.</p>
-                  <fieldset id="s0q1-fieldset" data-radio-group>
-                     <legend class="required-label"> Have you received a notice of assessment, reassessment, determination or redetermination for the issue you are objecting to?</legend>
-                     <div class="group">
-                        <input type="radio" id="s0q1-op1" name="s0q1" value="Yes">
-                        <label for="s0q1-op1"></label>
-                     </div>
-                     <div class="group">
-                        <input type="radio" id="s0q1-op2" name="s0q1" value="No" data-toggle="alert-unfiled-final">
-                        <label for="s0q1-op2"></label>
-                     </div>
-                     <div class="alert hidden" id="alert-unfiled-final">
-                        <div class="alert-error">
-                           <div class="line"></div>
-                           <div><span class="material-icons">
-                              report
-                              </span>
-                           </div>
-                           <div class="line"></div>
-                        </div>
-                        <div class="alert-content">
-                           <h5>You cannot continue</h5>
-                           You must have received a notice related to your objection before you can continue with this form. 
-                        </div>
-                     </div>
+            <h2>Before you begin</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <p>If you have entered or left Canada, this tool can help you determine your residency status for Canadian income tax purposes, which affects your income tax obligations and filing requirements in Canada.</p>
+              <p>
+                <strong>Note:</strong> If you have not entered or left Canada but plan to in the future, use this tool at that time to help determine your residency status.
+              </p>
+              <p>
+                <strong>You will need the following information:</strong></p>
+              <ul>
+                <li>dates you entered or left Canada</li>
+                <li>details about your home, family, and other personal ties</li>
+                <li>information about your work or finances</li>
+                <li>your plans for living in or outside Canada</li>
+              </ul>
+              
+              <div class="alert info" id="alert-byb">
+                <span class="material-icons">info</span>
+                <div class="alert-content"> The residency determination is based on the information you provide. If your situation changes, your residency status may change too. Answer all questions that apply to your situation. </div>
+              </div>
+              <button type="button" class="accordion">Important information </button>
+              <div class="accordion-content">
+                <ul></ul>
+              </div>
+              <div class="btn-container">
+                <button class="btn btn-primary next-button" type="button">Begin</button>
+                <button class="hidden btn btn-primary out-button" type="button" onclick="location.href='index.html'">Return to Canada.ca</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step active" id="step-1">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
+            </div>
+            <h2>General information</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <form id="step-1-form">
+                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+                <br>
+                <div class="alert info" id="alert-byb-step1">
+                  <span class="material-icons">info</span>
+                  <div class="alert-content"> TBD </div>
+                </div>
+                <fieldset id="s1q1-fieldset" class="standard-input" data-radio-group>
+                  <legend class="required-label">Select which situation applies to you <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a></legend>
+                  <div class="group">
+                    <input type="radio" id="s1q1-op1" name="s1q1" value="I entered Canada" data-toggle="s1q2-entered-fieldset,s1q3-fieldset">
+                    <label for="s1q1-op1"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s1q1-op2" name="s1q1" value="I left Canada" data-toggle="s1q2-left-fieldset,s1q3-fieldset,residentcanada-fieldset">
+                    <label for="s1q1-op2"></label>
+                  </div>
+                </fieldset>
+                <fieldset id="s1q2-entered-fieldset" class="floating-input threequarter-width hidden">
+                  <input class="" type="text" id="s1q2-entered-field" name="s1q2-entered-field" placeholder=" ">
+                  <label for="s1q2-entered-field" class="required-label">Date you entered Canada </label>
+                  <div class="suffix">
+                    <span class="material-icons">calendar_month</span>
+                  </div>
+                  <div class="datepicker-modal hidden"></div>
+                </fieldset>
+                <fieldset id="s1q2-left-fieldset" class="floating-input threequarter-width hidden">
+                  <input class="" type="text" id="s1q2-left-field" name="s1q2-left-field" placeholder=" ">
+                  <label for="s1q2-left-field" class="required-label">Date you left Canada </label>
+                  <div class="suffix">
+                    <span class="material-icons">calendar_month</span>
+                  </div>
+                  <div class="datepicker-modal hidden"></div>
+                </fieldset>
+                <fieldset id="s1q3-fieldset" class="standard-input hidden" data-radio-group>
+                  <legend class="required-label">What is your current martial status?</legend>
+                  <div class="group">
+                    <input type="radio" id="s1q3-op1" name="s1q3" value="Married" data-toggle="s1-residency">
+                    <label for="s1q3-op1"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s1q3-op2" name="s1q3" value="Common-law" data-toggle="s1-residency">
+                    <label for="s1q3-op2"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s1q3-op3" name="s1q3" value="Widowed" data-toggle="s1-residency">
+                    <label for="s1q3-op3"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s1q3-op4" name="s1q3" value="Divorced" data-toggle="s1-residency">
+                    <label for="s1q3-op4"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s1q3-op5" name="s1q3" value="Single" data-toggle="s1-residency">
+                    <label for="s1q3-op5"></label>
+                  </div>
+                </fieldset>
+                <fieldset id="residentcanada-fieldset" class="standard-input hidden" data-radio-group>
+                  <legend class="required-label">Were you a resident of Canada before leaving?</legend>
+                  <div class="group">
+                    <input type="radio" id="residentcanada-op1" name="residentcanada" value="Yes" data-toggle="s1-residency">
+                    <label for="residentcanada-op1"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="residentcanada-op2" name="residentcanada" value="No" data-toggle="s1-residency,alert-nonresleaving">
+                    <label for="residentcanada-op2"></label>
+                  </div>
+                
+                </fieldset>
+               <div class="alert warning hidden" id="alert-nonresleaving">
+                <span class="material-icons">warning</span>
+                <div class="alert-content">If you were considered a non-resident of Canada while living here, you do not need to complete this form.</div>
+              </div>
+                <!-- <fieldset id="" class="floating-input full-width"><input type="text" 
+                         id="" 
+                         name=""
+                         placeholder=" "><label for="">
+                          If known, provide the case number for the related objection
+                         </label></fieldset> -->
+               <div id="s1-residency" class="hidden">
+                  <hr>
+                  <h5>Usual residency</h5>
+                  <fieldset id="s1q4-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Select the option that best descibes your residency situation <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a>
+                    </legend>
+                    <div class="group">
+                      <input type="radio" id="s1q4-op1" name="s1q4" value="I usually live in another country but I enter and leave Canada on the same day to work, study or similar" data-toggle="s1q5-fieldset">
+                      <label for="s1q4-op1"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q4-op2" name="s1q4" value="I usually live in Canada but I leave Canada during the day to work, study or similar in another country assnd return to Canada on the same day" data-toggle="s1q5-fieldset">
+                      <label for="s1q4-op2"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q4-op3" name="s1q4" value="None of the above" data-toggle="s1q5-fieldset">
+                      <label for="s1q4-op3"></label>
+                    </div>
                   </fieldset>
-                  <button class="btn btn-primary next-button" type="button">Begin</button>
-                  <button class="hidden btn btn-primary out-button" type="button" onclick="location.href='index.html'">Return to Canada.ca</button>
-               </div>
+                  <fieldset id="s1q5-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Are you considered a resident of another country?</legend>
+                    <div class="group">
+                      <input type="radio" id="s1q5-op1" name="s1q5" value="Yes" data-toggle="s1q6-fieldset">
+                      <label for="s1q5-op1"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q5-op2" name="s1q5" value="No" data-toggle="s1-staylength">
+                      <label for="s1q5-op2"></label>
+                    </div>
+                  </fieldset>
+                  <fieldset id="s1q6-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Does that country have a tax agreement with Canada? <span class="material-icons">help</span>
+                    </legend>
+                    <div class="group">
+                      <input type="radio" id="s1q6-op1" name="s1q6" value="Yes" data-toggle="s1q7-fieldset">
+                      <label for="s1q6-op1"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q6-op2" name="s1q6" value="No" data-toggle="">
+                      <label for="s1q6-op2"></label>
+                    </div>
+                  </fieldset>
+                  <fieldset id="s1q7-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Are you subject to income tax in that country in the same way as any other resident of that country? </legend>
+                    <div class="group">
+                      <input type="radio" id="s1q7-op1" name="s1q7" value="Yes" data-toggle="s1-staylength">
+                      <label for="s1q7-op1"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q7-op2" name="s1q7" value="No" data-toggle="">
+                      <label for="s1q7-op2"></label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div id="s1-reasonforleaving" class="">
+                  <hr>
+                  <h5>Reason for leaving Canada</h5>
+                  <fieldset id="s1q8-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">How long do you expect to live in Canada? </legend>
+                    <div class="group">
+                      <input type="radio" id="s1q8-op1" name="s1q8" value="Less than a year" data-toggle="s1q9-fieldset">
+                      <label for="s1q8-op1"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q8-op2" name="s1q8" value="More than a year" data-toggle="s1q9-fieldset">
+                      <label for="s1q8-op2"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q8-op3" name="s1q8" value="I do not plan to leave Canada" data-toggle="">
+                      <label for="s1q8-op3"></label>
+                    </div>
+                  </fieldset>
+                  <fieldset id="s1q9-fieldset" class="floating-input threequarter-width hidden">
+                    <input class="" type="text" id="s1q9-left-field" name="s1q9-dateleave-field" placeholder=" ">
+                    <label for="s1q9-dateleave-field" class="required-label">Date you plan to leave Canada </label>
+                    <div class="suffix">
+                      <span class="material-icons">calendar_month</span>
+                    </div>
+                    <div class="datepicker-modal hidden"></div>
+                  </fieldset>
+                </div>
+               <div id="s1-staylength" class="hidden">
+                  <hr>
+                  <h5>Length of stay</h5>
+                  <fieldset id="s1q8-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">How long do you expect to live in Canada? </legend>
+                    <div class="group">
+                      <input type="radio" id="s1q8-op1" name="s1q8" value="Less than a year" data-toggle="s1q9-fieldset">
+                      <label for="s1q8-op1"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q8-op2" name="s1q8" value="More than a year" data-toggle="s1q9-fieldset">
+                      <label for="s1q8-op2"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="s1q8-op3" name="s1q8" value="I do not plan to leave Canada" data-toggle="">
+                      <label for="s1q8-op3"></label>
+                    </div>
+                  </fieldset>
+                  <fieldset id="s1q9-fieldset" class="floating-input threequarter-width hidden">
+                    <input class="" type="text" id="s1q9-left-field" name="s1q9-dateleave-field" placeholder=" ">
+                    <label for="s1q9-dateleave-field" class="required-label">Date you plan to leave Canada </label>
+                    <div class="suffix">
+                      <span class="material-icons">calendar_month</span>
+                    </div>
+                    <div class="datepicker-modal hidden"></div>
+                  </fieldset>
+                </div>
+               
+                <div class="btn-container">
+                  <button class="btn btn-secondary back-button" type="button">Back</button>
+                  <button class="btn btn-primary next-button" type="button">Next</button>
+                  <button class="hidden btn btn-primary out-button" type="button" onclick="location.href='chooser.html'">Return to Canada.ca</button>
+                </div>
+              </form>
+               <div class="lightbox-container" id="excisetax-lightbox">
+                  <div class="lightbox">
+                    <div class="header">
+                      <h3>Specified person</h3>
+                      <button data-closebtn class="btn-tertiary" type="button">
+                        <span class="material-icons">clear</span>
+                      </button>
+                    </div>
+                    <div class="lightbox-content">
+                      <p>A "specified person" for GST/HST purposes is a high-volume business or a financial institution. You are classified as a specified person if you are listed as a financial institution, or if your taxable supplies (along with your associates) exceed <strong>$6 million</strong> in both your current and preceding fiscal years. For more information, go to <a href="#">Excise Tax Act</a>.</p>
+                    </div>
+                    <div class="buttons">
+                      <button class="btn-primary" data-closebtn type="button">Done</button>
+                    </div>
+                  </div>
+                </div>
             </div>
-         </section>
-         <section class="step" id="step-1">
-            <div class="step-header">
-               <div class="step-number">
-                  <span class="step-icon material-icons">check</span>
-               </div>
-               <h2>Provide objection information</h2>
+          </div>
+        </section>
+        <section class="step" id="step-2">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
             </div>
-            <div class="step-content">
-               <div class="container">
-                  <form id="step-1-form">
-                     <div class="required">Fields marked with asterisk (<span class="ast">*</span>) are required.</div>
-                     <fieldset id="s1q1-fieldset" data-radio-group>
-                        <legend class="required-label"> Is this the first time an objection has been filed for this notice of assessment or determination?</legend>
-                        <div class="group">
-                           <input type="radio" id="s1q1-op1" name="s1q1" value="Yes" data-toggle="s1q4-fieldset">
-                           <label for="s1q1-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q1-op2" name="s1q1" value="No" data-toggle="s1q2-fieldset">
-                           <label for="s1q1-op2"></label>
-                        </div>
-                     </fieldset>
-                     <fieldset id="s1q2-fieldset" class="hidden" data-radio-group>
-                        <legend class="required-label"> Why do you want to file another objection?</legend>
-                        <div class="group">
-                           <input type="radio" id="s1q2-op1" name="s1q2" value="I have not heard back yet about my first one" data-toggle="alert-notheardback">
-                           <label for="s1q2-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q2-op2" name="s1q2" value="I do not agree with the decision I received" data-toggle="s1q3-fieldset">
-                           <label for="s1q2-op2"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q2-op3" name="s1q2" value="I have new details to add" data-toggle="alert-moretoadd">
-                           <label for="s1q2-op3"></label>
-                        </div>
-                        <div class="alert hidden" id="alert-notheardback">
-                           <div class="alert-error">
-                              <div class="line"></div>
-                              <div><span class="material-icons">
-                                 report
-                                 </span>
-                              </div>
-                              <div class="line"></div>
-                           </div>
-                           <div class="alert-content">
-                              Submitting multiple requests for the same objection will cause a delay in processing your case. Please do not submit a duplicate request. 
-                              <br>
-                              For information on CRA processing times visit: <a href="#">Processing times and complexity levels - Income tax and GST/HST objections</a>
-                           </div>
-                        </div>
-                        <div class="alert hidden" id="alert-moretoadd">
-                           <div class="alert-error">
-                              <div class="line"></div>
-                              <div><span class="material-icons">
-                                 report
-                                 </span>
-                              </div>
-                              <div class="line"></div>
-                           </div>
-                           <div class="alert-content">
-                              Additional details may only be submitted once an officer has been assigned to your case.
-                           </div>
-                        </div>
-                     </fieldset>
-                     <fieldset id="s1q3-fieldset" class="hidden" data-radio-group>
-                        <legend class="required-label"> Select the option that best applies to you.</legend>
-                        <div class="group">
-                           <input type="radio" id="s1q3-op1" name="s1q3" value="My previous objection led to a new notice that I want to object to" data-toggle="s1q5-fieldset,s1q6-fieldset">
-                           <label for="s1q3-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q3-op2" name="s1q3" value="I received a notice of confirmation" data-toggle="alert-noticeconfirmation">
-                           <label for="s1q3-op2"></label>
-                        </div>
-                        <div class="alert hidden" id="alert-noticeconfirmation">
-                           <div class="alert-error">
-                              <div class="line"></div>
-                              <div><span class="material-icons">
-                                 report
-                                 </span>
-                              </div>
-                              <div class="line"></div>
-                           </div>
-                           <div class="alert-content">
-                              If you received a notice of confirmation, you must file an appeal to the Tax Court of Canada.
-                              <br>For more information visit: <a href="#">File an appeal to the Court - Income tax or GST/HST</a>
-                           </div>
-                        </div>
-                     </fieldset>
-                     <fieldset id="s1q4-fieldset" class="hidden" data-radio-group>
-                        <legend class="required-label"> Are you aware of any related objections that have been filed with CRA?<br><span class="sub-label">For example, your spouse or your business partner filed an objection to the same amount on their notice.</span></legend>
-                        <div class="group">
-                           <input type="radio" id="s1q4-op1" name="s1q4" value="Yes" data-toggle="s1q5-fieldset,s1q6-fieldset">
-                           <label for="s1q4-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q4-op2" name="s1q4" value="No" data-toggle="s1q6-fieldset">
-                           <label for="s1q4-op2"></label>
-                        </div>
-                     </fieldset>
-                     <fieldset id="s1q5-fieldset" class="hidden" data-radio-group>
-                        <legend class="optional-label"> If known, provide the case number for the related objection</legend>
-                        <input class="half-width" type="text" id="s1q5-field" name="s1q5">
-                     </fieldset>
-                     <fieldset id="s1q6-fieldset" class="hidden" data-radio-group>
-                        <legend class="required-label"> Select the option that best describes you.</legend>
-                        <div class="group">
-                           <input type="radio" id="s1q6-op1" name="s1q6" value="I am completing this form for myself or my business" data-toggle="s1q7-fieldset"1>
-                           <label for="s1q6-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q6-op2" name="s1q6" value="I am an authorized or legal representative filling this out on behalf of someone else" data-toggle="s1q7-fieldset,rep-info-section">
-                           <label for="s1q6-op2"></label>
-                        </div>
-                     </fieldset>
-                     <fieldset id="s1q7-fieldset" class="hidden" data-radio-group>
-                        <legend class="required-label">Who is this request for?</legend>
-                        <div class="group">
-                           <input type="radio" id="s1q7-op1" name="s1q7" value="Individual" data-toggle="individual-info-section">
-                           <label for="s1q7-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q7-op2" name="s1q7" value="A business" data-toggle="business-info-section">
-                           <label for="s1q7-op2"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s1q7-op3" name="s1q7" value="A trust" data-toggle="trust-info-section">
-                           <label for="s1q7-op3"></label>
-                        </div>
-                     </fieldset>
-                     <div id="rep-info-section" class="hidden">
-                        <fieldset id="rep-name-fieldset" class="field-row">
-                           <div>
-                              <label class="required-label" for="s1rep-firstname">Representative first name</label>
-                              <input type="text" id="s1rep-firstname" name="s1rep-fname">
-                           </div>
-                           <div>
-                              <label class="required-label" for="s1rep-lastname">Representative last name</label>
-                              <input type="text" id="s1rep-lastname" name="s1rep-lname">
-                           </div>
-                        </fieldset>
-                        <fieldset> 
-                           <label class="required-label" for="s1rep-telephone">Representative telephone number</label>
-                           <input class="half-width" type="text" id="s1rep-telephone" name="s1rep-telephone">
-                        </fieldset>
-                        <fieldset> 
-                           <label class="ml-16px" for="s1rep-repid">Rep ID</label>
-                           <input class="quarter-width" type="text" id="s1rep-repid" name="s1rep-repid" maxlength="7">
-                        </fieldset>
-                        <br>
-                        <hr>
-                     </div>
-                     <div id="individual-info-section" class="hidden">
-                        <fieldset id="ind-taxtype-fieldset">
-                           <label for="s1ind-taxtype"class="required-label">
-                           Select the subject you are objecting to.</label>
-                           <select id="s1ind-taxtype" name="s1ind-taxtype">
-                              <option value="" selected>(Select)</option>
-                              <option value="Income tax">Income tax</option>
-                              <option value="GST/HST credit or other provincial/territorial programs">GST/HST credit or other provincial/territorial programs</option>
-                              <option value="Canada Child Benefit (CCB) or other provincial/territorial programs">Canada Child Benefit (CCB) or other provincial/territorial programs</option>
-                              <option value="Disability Tax Credit (DTC)">Disability Tax Credit (DTC)</option>
-                              <option value="First Home Savings Account (FHSA) assessment notice">First Home Savings Account (FHSA) assessment notice</option>
-                              <option value="Tax-Free Savings Account (TFSA)">Tax-Free Savings Account (TFSA)</option>
-                              <option value="thirdparty">Third-party assessment (T779 / GST259)</option>
-                           </select>
-                        </fieldset>
-                        <fieldset id="s1-ind-thirdpartyref-fieldset" class="hidden">
-                           <label class="required-label" for="s1-ind-thirdpartyref">Third-party reference number</label>
-                           <input type="text" class="half-width" name="thirdpartyref" id="s1-ind-thirdpartyref">
-                        </fieldset>
-                        <fieldset id="ind-name-fieldset" class="field-row">
-                           <div>
-                              <label class="required-label" for="s1ind-firstname">First name</label>
-                              <input type="text" id="s1ind-firstname" name="s1ind-fname">
-                           </div>
-                           <div>
-                              <label class="required-label" for="s1ind-lastname">Last name</label>
-                              <input type="text" id="s1ind-lastname" name="s1ind-lname">
-                           </div>
-                        </fieldset>
-                        <div class="half-width">
-                           <label class="required-label" for="s1ind-sin">Social insurance number (9 digits)</label>
-                           <input type="text" id="s1ind-sin" name="s1ind-sin" maxlength="9">
-                        </div>
-                        <fieldset>
-                           <label class="required-label" for="s1ind-address" >Address</label>
-                           <textarea type="text" id="s1ind-address" name="s1ind-address" class="address-field"></textarea>
-                        </fieldset>
-                        <fieldset>
-                           <label class="required-label" for="s1ind-telephone">Telephone number</label>
-                           <input type="text" id="s1ind-telephone" name="s1ind-telephone">
-                        </fieldset>
-                     </div>
-                     <div id="business-info-section" class="hidden">
-                        <fieldset id="s1biz-bizname-fieldset">
-                           <label for="s1biz-bizname" class="required-label">Business name</label>
-                           <input id="s1biz-bizname" name="s1biz-bizname" type="text"/>
-                        </fieldset>
-                        <label for="s1biz-accountype" class="required-label">Select the business type.</label>
-                        <select id="s1biz-accountype" name="s1biz-accountype" data-toggle="s1biz-bn-fieldset">
-                           <option value="" selected>(Select)</option>
-                           <option value="RC" data-name="Corporation income tax">Corporation income tax (RC)</option>
-                           <option value="RT" data-name="GST/HST ">GST/HST (RT)</option>
-                           <option value="RP" data-name="Payroll">Payroll (RP)</option>
-                           <option value="ZA" data-name="Air Travellers Security Charge">Air Travellers Security Charge (ZA)</option>
-                           <option value="RD" data-name="Excise Duty">Excise Duty (RD)</option>
-                           <option value="RN" data-name="Excise Tax on Insurance Premiums">Excise Tax on Insurance Premiums (RN)</option>
-                           <option value="CT" data-name="Fuel Charge">Fuel Charge (CT)</option>
-                           <option value="LT" data-name="Luxury Tax">Luxury Tax (LT)</option>
-                           <option value="RU" data-name="Underused Housing Tax">Underused Housing Tax (RU)</option>
-                           <option value="thirdparty">Third-party assessment (T779 / GST259)</option>
-                        </select>
-                        <fieldset id="s1-biz-thirdpartyref-fieldset" class="hidden">
-                           <label class="required-label" for="s1-biz-thirdpartyref">Third-party reference number</label>
-                           <input type="text" class="half-width" name="thirdpartyref" id="s1-biz-thirdpartyref">
-                        </fieldset>
-                        <fieldset id="s1biz-bn-fieldset" class="hidden">
-                           <label for="s1biz-bn9" class="required-label">Business number</label>
-                          
-                           <div class="input-wrapper ml-16px" id="s1biz-bn-wrapper">
-                              <input class="BN9" type="text" id="s1biz-BN9" name="s1biz-BN9" maxlength="9" placeholder="123456789">
-                              <div class="static"></div>
-                              <input class="BN4" type="text" id="s1biz-BN4" name="s1biz-BN4" maxlength="4" placeholder="1234">
-                           </div>
-                           <input type="text" class="hidden" id="s1biz-bnfreeform" name="s1biz-bn9">
-                        </fieldset>
-                       
-                        <fieldset>
-                           <label class="required-label" for="s1biz-address">Business address</label>
-                           <textarea type="text" id="s1biz-address" name="s1biz-address" class="address-field"></textarea>
-                        </fieldset>
-                        <label class="required-label" 
-                           for="s1biz-telephone">Contact telephone number</label>
-                        <input type="text" id="s1biz-telephone" name="s1biz-telephone">
-                     </div>
-                     <div id="trust-info-section" class="hidden">
-                        <label class="required-label" for="s1trust-trustname">Name of trust</label>
-                        <input type="text" id="s1trust-trustname" name="s1trust-trustname">
-                        <label class="required-label" for="s1trust-trustname">Trust number</label>
-                        <div class="multifield-wrapper">
-                           <div class="input-wrapper ml-16px" id="s1trust-trustnumwrapper">
-                              <div class="prefix">T</div>
-                              <input class="" type="text" id="s1trust-trustnum" name="s1trust-trustnum">
-                           </div>
-                        </div>
-                        <fieldset>
-                           <label class="required-label" for="s1trust-address">Address of trust</label>
-                           <textarea type="text" id="s1trust-address" name="s1trust-address" class="address-field"></textarea>
-                        </fieldset>
-                     </div>
-                     <button class="btn btn-secondary back-button" type="button">Back</button>
-                     <button class="btn btn-primary next-button" type="button">Next</button>
-                     <button class="hidden btn btn-primary out-button" type="button" onclick="location.href='chooser.html'">Return to Canada.ca</button>
-                  </form>
-               </div>
+            <h2>Employment</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <form id="step-2-form">
+                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+                <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
+                <fieldset id="s2q1-fieldset" data-radio-group>
+                  <legend class="required-label">What kind of notice did you receive?</legend>
+                  <div class="group">
+                    <input type="radio" id="s2q1-op1" name="s2q1" value="Notice of assessment or reassessment " data-toggle="s2-noticedate-fieldset">
+                    <label for="s2q1-op1"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s2q1-op2" name="s2q1" value="Notice of determination or redetermination" data-toggle="s2-noticedate-fieldset">
+                    <label for="s2q1-op2"></label>
+                  </div>
+                </fieldset>
+                <fieldset id="s2-timeextension-fieldset" class="hidden">
+                  <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
+                  <label for="s2-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
+                  <textarea id="s2-timeextension" name="s2timeextension"></textarea>
+                </fieldset>
+                <div class="hidden" id="s2-date-fields">
+                  <fieldset id="tax-years-fieldset" class="hidden">
+                    <label for="s2q3-field" class="required-label">Tax year(s)</label>
+                    <div class="ml-16px vertical-stack" id="tax-years-container">
+                      <input class="quarter-width" id="s2q3-field" type="number" min="1900" max="2100" name="s2q3" data-array="true">
+                    </div>
+                    <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn">
+                      <span class="material-icons">add_circle</span> Add another tax year </button>
+                  </fieldset>
+                  <fieldset id="fiscal-period-fieldset" class="hidden">
+                    <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
+                    <input type="date" id="fiscal-period-end" name="s2_fiscalperiod" class="ml-16px">
+                  </fieldset>
+                </div>
+                <fieldset id="s2q4-fieldset" class="hidden">
+                  <label for="s2q4-field" class="required-label">Province or territory for the tax year</label>
+                  <select id="s2q4-field" name="s2q4">
+                    <option value="" selected>(Select)</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Northwest Territories">Northwest Territories</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Yukon">Yukon</option>
+                  </select>
+                </fieldset>
+                <fieldset id="s2q5-fieldset" class="hidden">
+                  <label for="s2q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
+                  <div class="input-wrapper search-wrapper full-width ml-16px">
+                    <div class="prefix">
+                      <span class="material-icons">search</span>
+                    </div>
+                    <input type="text" id="s2q5-field" name="s2q5">
+                  </div>
+                  <div class="search-dropdown hidden" id="s2q5-dropdown">
+                    <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
+                    <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
+                    <option value="1000" data-description="Revenue">1000: Revenue</option>
+                    <option value="2000" data-description="Expenses">2000: Expenses</option>
+                  </div>
+                </fieldset>
+                <table id="tax-lines-tb" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
+                  <thead>
+                    <tr>
+                      <th>Tax line</th>
+                      <th>Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody data-placeholder=""></tbody>
+                </table>
+                <fieldset id="s2q6-fieldset" class="hidden">
+                  <label for="s2q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
+                  <textarea id="s2q6-field" name="s2q6" data-maxlength="2500" maxlength="2500"></textarea>
+                </fieldset>
+                <button class="btn btn-secondary back-button" type="button">Back</button>
+                <button class="btn btn-primary next-button" type="button">Next</button>
+              </form>
             </div>
-         </section>
-         <section class="step" id="step-2">
-            <div class="step-header">
-               <div class="step-number">
-                  <span class="step-icon material-icons">check</span>
-               </div>
-               <h2>Describe your objection</h2>
+          </div>
+        </section>
+        <section class="step" id="step-3">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
             </div>
-            <div class="step-content">
-               <div class="container">
-                  <form id="step-2-form">
-                     <div class="required">Fields marked with asterisk (<span class="ast">*</span>) are required.</div>
-                     <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
-                     <fieldset id="s2q1-fieldset" data-radio-group>
-                        <legend class="required-label">What kind of notice did you receive?</legend>
-                        <div class="group">
-                           <input type="radio" id="s2q1-op1" name="s2q1" value="Notice of assessment or reassessment " data-toggle="s2-noticedate-fieldset">
-                           <label for="s2q1-op1"></label>
-                        </div>
-                        <div class="group">
-                           <input type="radio" id="s2q1-op2" name="s2q1" value="Notice of determination or redetermination" data-toggle="s2-noticedate-fieldset">
-                           <label for="s2q1-op2"></label>
-                        </div>
-                     </fieldset>
-                     
-                   
-                     <fieldset id="s2-noticedate-fieldset" class="hidden">
-                        <label for="s2-noticedate-field" class="required-label">
-                        Date on notice of assessment or determination</label>
-                        <input class="ml-16px" type="date" name="s2noticedate" id="s2-noticedate-field" placeholder="YYYY-MM-DD" data-toggle="s2-date-fields,s2q4-fieldset,s2q5-fieldset,s2q6-fieldset"><BR>
-                     </fieldset>
-                     <fieldset id="s2-timeextension-fieldset" class="hidden">
-                        <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
-                        <label for="s2-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
-                        <textarea id="s2-timeextension" name="s2timeextension" ></textarea>
-                     </fieldset>
-                     <div class="hidden" id="s2-date-fields">
-                        <fieldset id="tax-years-fieldset" class="hidden">
-                           <label for="s2q3-field" class="required-label">Tax year(s)</label>
-                           <div class="ml-16px vertical-stack" id="tax-years-container">
-                              <input class="quarter-width" id="s2q3-field" type="number" min="1900" max="2100" name="s2q3" data-array="true">
-                           </div>
-                           <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn"><span class="material-icons">add_circle</span> Add another tax year</button>
-                        </fieldset>
-                        <fieldset id="fiscal-period-fieldset" class="hidden">
-                           <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
-                           <input type="date" id="fiscal-period-end" name="s2_fiscalperiod" class="ml-16px">
-                        </fieldset>
-                     </div>
-                     <fieldset id="s2q4-fieldset" class="hidden">
-                        <label for="s2q4-field" class="required-label">Province or territory for the tax year</label>
-                        <select id="s2q4-field" name="s2q4">
-                           <option value="" selected>(Select)</option>
-                           <option value="Alberta">Alberta</option>
-                           <option value="British Columbia">British Columbia</option>
-                           <option value="Manitoba">Manitoba</option>
-                           <option value="New Brunswick">New Brunswick</option>
-                           <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-                           <option value="Northwest Territories">Northwest Territories</option>
-                           <option value="Nova Scotia">Nova Scotia</option>
-                           <option value="Nunavut">Nunavut</option>
-                           <option value="Ontario">Ontario</option>
-                           <option value="Prince Edward Island">Prince Edward Island</option>
-                           <option value="Quebec">Quebec</option>
-                           <option value="Saskatchewan">Saskatchewan</option>
-                           <option value="Yukon">Yukon</option>
-                        </select>
-                     </fieldset>
-                     <fieldset id="s2q5-fieldset" class="hidden">
-                        <label for="s2q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
-                        <div class="input-wrapper search-wrapper full-width ml-16px">
-                           <div class="prefix"><span class="material-icons">search</span></div>
-                           <input type="text" id="s2q5-field" name="s2q5">
-                        </div>
-                        <div class="search-dropdown hidden" id="s2q5-dropdown">
-                           <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
-                           <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
-                           <option value="1000" data-description="Revenue">1000: Revenue</option>
-                           <option value="2000" data-description="Expenses">2000: Expenses</option>
-                        </div>
-                     </fieldset>
-                     <table id="tax-lines-tb" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
-                        <thead>
-                           <tr>
-                              <th>Tax line</th>
-                              <th>Description</th>
-                              <th>Action</th>
-                           </tr>
-                        </thead>
-                        <tbody data-placeholder="">
-                        </tbody>
-                     </table>
-                     <fieldset id="s2q6-fieldset" class="hidden">
-                        <label for="s2q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
-                        <textarea id="s2q6-field" name="s2q6" data-maxlength="2500" maxlength="2500"></textarea>
-                     </fieldset>
-                     <button class="btn btn-secondary back-button" type="button">Back</button>
-                     <button class="btn btn-primary next-button" type="button">Next</button>
-                  </form>
-               </div>
+            <h2>Ties in Canada</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <form id="step-3-form">
+                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+                <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
+                <fieldset id="s2q1-fieldset" data-radio-group>
+                  <legend class="required-label">What kind of notice did you receive?</legend>
+                  <div class="group">
+                    <input type="radio" id="s2q1-op1" name="s2q1" value="Notice of assessment or reassessment " data-toggle="s2-noticedate-fieldset">
+                    <label for="s2q1-op1"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s2q1-op2" name="s2q1" value="Notice of determination or redetermination" data-toggle="s2-noticedate-fieldset">
+                    <label for="s2q1-op2"></label>
+                  </div>
+                </fieldset>
+                <fieldset id="s2-noticedate-fieldset" class="hidden">
+                  <label for="s2-noticedate-field" class="required-label"> Date on notice of assessment or determination</label>
+                  <input class="ml-16px" type="date" name="s2noticedate" id="s2-noticedate-field" placeholder="YYYY-MM-DD" data-toggle="s2-date-fields,s2q4-fieldset,s2q5-fieldset,s2q6-fieldset">
+                 
+                </fieldset>
+                <fieldset id="s2-timeextension-fieldset" class="hidden">
+                  <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
+                  <label for="s2-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
+                  <textarea id="s2-timeextension" name="s2timeextension"></textarea>
+                </fieldset>
+                <div class="hidden" id="s2-date-fields">
+                  <fieldset id="tax-years-fieldset" class="hidden">
+                    <label for="s2q3-field" class="required-label">Tax year(s)</label>
+                    <div class="ml-16px vertical-stack" id="tax-years-container">
+                      <input class="quarter-width" id="s2q3-field" type="number" min="1900" max="2100" name="s2q3" data-array="true">
+                    </div>
+                    <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn">
+                      <span class="material-icons">add_circle</span> Add another tax year </button>
+                  </fieldset>
+                  <fieldset id="fiscal-period-fieldset" class="hidden">
+                    <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
+                    <input type="date" id="fiscal-period-end" name="s2_fiscalperiod" class="ml-16px">
+                  </fieldset>
+                </div>
+                <fieldset id="s2q4-fieldset" class="hidden">
+                  <label for="s2q4-field" class="required-label">Province or territory for the tax year</label>
+                  <select id="s2q4-field" name="s2q4">
+                    <option value="" selected>(Select)</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Northwest Territories">Northwest Territories</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Yukon">Yukon</option>
+                  </select>
+                </fieldset>
+                <fieldset id="s2q5-fieldset" class="hidden">
+                  <label for="s2q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
+                  <div class="input-wrapper search-wrapper full-width ml-16px">
+                    <div class="prefix">
+                      <span class="material-icons">search</span>
+                    </div>
+                    <input type="text" id="s2q5-field" name="s2q5">
+                  </div>
+                  <div class="search-dropdown hidden" id="s2q5-dropdown">
+                    <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
+                    <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
+                    <option value="1000" data-description="Revenue">1000: Revenue</option>
+                    <option value="2000" data-description="Expenses">2000: Expenses</option>
+                  </div>
+                </fieldset>
+                <table id="tax-lines-tb" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
+                  <thead>
+                    <tr>
+                      <th>Tax line</th>
+                      <th>Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody data-placeholder=""></tbody>
+                </table>
+                <fieldset id="s2q6-fieldset" class="hidden">
+                  <label for="s2q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
+                  <textarea id="s2q6-field" name="s2q6" data-maxlength="2500" maxlength="2500"></textarea>
+                </fieldset>
+                <button class="btn btn-secondary back-button" type="button">Back</button>
+                <button class="btn btn-primary next-button" type="button">Next</button>
+              </form>
             </div>
-         </section>
-         <section class="step" id="step-3">
-            <div class="step-header">
-               <div class="step-number">
-                  <span class="step-icon material-icons">check</span>
-               </div>
-               <h2>Review and submit</h2>
+          </div>
+        </section>
+        <section class="step" id="step-4">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
             </div>
-            <div class="step-content">
-               <div class="container">
-                  <form id="step-3-form">
-                     <div class="required">Fields marked with asterisk (<span class="ast">*</span>) are required.</div>
-                     <div id="s3-review-container">
-                     </div>
-                  </form>
-               </div>
-               <button class="btn btn-secondary back-button" type="button">Back</button>
-               <button id="appsubmit-btn" class="btn btn-primary" type="button">Submit</button>
+            <h2>Ties in another country</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <form id="step-4-form">
+                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+                <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
+                <fieldset id="s2q1-fieldset" data-radio-group>
+                  <legend class="required-label">What kind of notice did you receive?</legend>
+                  <div class="group">
+                    <input type="radio" id="s2q1-op1" name="s2q1" value="Notice of assessment or reassessment " data-toggle="s2-noticedate-fieldset">
+                    <label for="s2q1-op1"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="s2q1-op2" name="s2q1" value="Notice of determination or redetermination" data-toggle="s2-noticedate-fieldset">
+                    <label for="s2q1-op2"></label>
+                  </div>
+                </fieldset>
+                <fieldset id="s2-noticedate-fieldset" class="hidden">
+                  <label for="s2-noticedate-field" class="required-label"> Date on notice of assessment or determination</label>
+                  <input class="ml-16px" type="date" name="s2noticedate" id="s2-noticedate-field" placeholder="YYYY-MM-DD" data-toggle="s2-date-fields,s2q4-fieldset,s2q5-fieldset,s2q6-fieldset">
+                  <BR>
+                </fieldset>
+                <fieldset id="s2-timeextension-fieldset" class="hidden">
+                  <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
+                  <label for="s2-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
+                  <textarea id="s2-timeextension" name="s2timeextension"></textarea>
+                </fieldset>
+                <div class="hidden" id="s2-date-fields">
+                  <fieldset id="tax-years-fieldset" class="hidden">
+                    <label for="s2q3-field" class="required-label">Tax year(s)</label>
+                    <div class="ml-16px vertical-stack" id="tax-years-container">
+                      <input class="quarter-width" id="s2q3-field" type="number" min="1900" max="2100" name="s2q3" data-array="true">
+                    </div>
+                    <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn">
+                      <span class="material-icons">add_circle</span> Add another tax year </button>
+                  </fieldset>
+                  <fieldset id="fiscal-period-fieldset" class="hidden">
+                    <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
+                    <input type="date" id="fiscal-period-end" name="s2_fiscalperiod" class="ml-16px">
+                  </fieldset>
+                </div>
+                <fieldset id="s2q4-fieldset" class="hidden">
+                  <label for="s2q4-field" class="required-label">Province or territory for the tax year</label>
+                  <select id="s2q4-field" name="s2q4">
+                    <option value="" selected>(Select)</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Northwest Territories">Northwest Territories</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Yukon">Yukon</option>
+                  </select>
+                </fieldset>
+                <fieldset id="s2q5-fieldset" class="hidden">
+                  <label for="s2q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
+                  <div class="input-wrapper search-wrapper full-width ml-16px">
+                    <div class="prefix">
+                      <span class="material-icons">search</span>
+                    </div>
+                    <input type="text" id="s2q5-field" name="s2q5">
+                  </div>
+                  <div class="search-dropdown hidden" id="s2q5-dropdown">
+                    <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
+                    <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
+                    <option value="1000" data-description="Revenue">1000: Revenue</option>
+                    <option value="2000" data-description="Expenses">2000: Expenses</option>
+                  </div>
+                </fieldset>
+                <table id="tax-lines-tb" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
+                  <thead>
+                    <tr>
+                      <th>Tax line</th>
+                      <th>Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody data-placeholder=""></tbody>
+                </table>
+                <fieldset id="s2q6-fieldset" class="hidden">
+                  <label for="s2q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
+                  <textarea id="s2q6-field" name="s2q6" data-maxlength="2500" maxlength="2500"></textarea>
+                </fieldset>
+                <button class="btn btn-secondary back-button" type="button">Back</button>
+                <button class="btn btn-primary next-button" type="button">Next</button>
+              </form>
             </div>
-         </section>
+          </div>
+        </section>
+        <section class="step" id="step-5">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
+            </div>
+            <h2>Review</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <form id="step-3-form">
+                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+                <div id="s3-review-container"></div>
+              </form>
+            </div>
+            <button class="btn btn-secondary back-button" type="button">Back</button>
+            <button id="appsubmit-btn" class="btn btn-primary" type="button">Submit</button>
+          </div>
+        </section>
+        <section class="step" id="step-6">
+          <div class="step-header">
+            <div class="step-number">
+              <span class="step-icon material-icons">check</span>
+            </div>
+            <h2>Result</h2>
+          </div>
+          <div class="step-content">
+            <div class="container">
+              <form id="step-3-form">
+                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+                <div id="s3-review-container"></div>
+              </form>
+            </div>
+            <button class="btn btn-secondary back-button" type="button">Back</button>
+            <button id="appsubmit-btn" class="btn btn-primary" type="button">Submit</button>
+          </div>
+        </section>
       </main>
-      <script src="scripts.js"></script>
-   </body>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
 </html>
