@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notice of objections</title>
+    <title>Determination of residency status</title>
     <link rel="stylesheet" href="styles/base.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
@@ -44,14 +44,14 @@
                 <strong>Note:</strong> If you have not entered or left Canada but plan to in the future, use this tool at that time to help determine your residency status.
               </p>
               <p>
-                <strong>You will need the following information:</strong></p>
+                <strong>You will need the following information:</strong>
+              </p>
               <ul>
                 <li>dates you entered or left Canada</li>
                 <li>details about your home, family, and other personal ties</li>
                 <li>information about your work or finances</li>
                 <li>your plans for living in or outside Canada</li>
               </ul>
-              
               <div class="alert info" id="alert-byb">
                 <span class="material-icons">info</span>
                 <div class="alert-content"> The residency determination is based on the information you provide. If your situation changes, your residency status may change too. Answer all questions that apply to your situation. </div>
@@ -84,83 +84,33 @@
                   <div class="alert-content"> TBD </div>
                 </div>
                 <fieldset id="residencySituation-fieldset" class="standard-input" data-radio-group>
-                  <legend class="required-label">Select which situation applies to you <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a></legend>
+                  <legend class="required-label">Select which situation applies to you <a href="#" data-toggleLB="ressituation-lightbox">
+                      <span class="material-icons">help</span>
+                    </a>
+                  </legend>
                   <div class="group">
-                    <input type="radio" id="residencySituation-entered" name="residencySituation" value="I entered Canada" data-toggle="enteredCanadaDateFieldset,maritalStatus-fieldset" data-flow="0">
+                    <input type="radio" id="residencySituation-entered" name="residencySituation" value="I entered Canada" data-toggle="dailyEntry-fieldset" data-flow="0">
                     <label for="residencySituation-entered"></label>
                   </div>
                   <div class="group">
-                    <input type="radio" id="residencySituation-left" name="residencySituation" value="I left Canada" data-toggle="leftCanadaDateFieldset,maritalStatus-fieldset,previousCanadianResident-fieldset" data-flow="1">
+                    <input type="radio" id="residencySituation-left" name="residencySituation" value="I left Canada" data-toggle="leftCanada-section, dailyLeaving-fieldset" data-flow="1">
                     <label for="residencySituation-left"></label>
                   </div>
                 </fieldset>
                 <!-- entered canada -->
-                <div id="enteredCanada-section">
-                     <fieldset id="enteredCanadaDateFieldset" class="floating-input threequarter-width hidden">
-                      <input class="" type="text" id="enteredCanadaDate" name="enteredCanadaDate" placeholder=" ">
-                      <label for="enteredCanadaDate" class="required-label">Date you entered Canada </label>
-                      <div class="suffix">
-                        <span class="material-icons">calendar_month</span>
-                      </div>
-                      <div class="datepicker-modal hidden"></div>
-                    </fieldset>
-                      <div id="leavingResidency-details-section" class="hidden">
-                    <hr>
-                    <h5>Usual residency</h5>
-                    <fieldset id="dailyEntry-fieldset" class="standard-input" data-radio-group>
-                       <legend class="required-label">Do you usually live in another country but enter during the day to work, study or similar in another country and return to the other country on the same day? <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a>
-                    </legend>
-                    
-                      </legend>
-                      <div class="group">
-                        <input type="radio" id="dailyEntry-yes" name="usualResidencyStatus" value="Yes" data-toggle="otherCountryResidency-fieldset">
-                        <label for="dailyEntry-otherCountry"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="dailyEntry-No" name="usualResidencyStatus" value="No" data-toggle="otherCountryResidency-fieldset">
-                        <label for="dailyEntry-canadaSameDay"></label>
-                      </div>
-                  
-                    </fieldset>
-                    <fieldset id="otherCountryResidency-fieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Are you considered a resident of another country?</legend>
-                      <div class="group">
-                        <input type="radio" id="otherCountryResidency-yes" name="otherCountryResidency" value="Yes" data-toggle="taxAgreementFieldset">
-                        <label for="otherCountryResidency-yes"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="otherCountryResidency-no" name="otherCountryResidency" value="No" data-toggle="stayLength-section">
-                        <label for="otherCountryResidency-no"></label>
-                      </div>
-                    </fieldset>
-                    <fieldset id="taxAgreementFieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Does that country have a tax agreement with Canada? <span class="material-icons">help</span>
-                      </legend>
-                      <div class="group">
-                        <input type="radio" id="taxAgreementWithCanada-yes" name="taxAgreementWithCanada" value="Yes" data-toggle="countryIncomeTaxSubject-fieldset">
-                        <label for="taxAgreementWithCanada-yes"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="taxAgreementWithCanada-no" name="taxAgreementWithCanada" value="No" data-toggle="">
-                        <label for="taxAgreementWithCanada-no"></label>
-                      </div>
-                    </fieldset>
-                    <fieldset id="countryIncomeTaxSubject-fieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Are you subject to income tax in that country in the same way as any other resident of that country? </legend>
-                      <div class="group">
-                        <input type="radio" id="subjectToCountryIncomeTax-yes" name="subjectToCountryIncomeTax" value="Yes" data-toggle="reasonForLeaving-section">
-                        <label for="subjectToCountryIncomeTax-yes"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="subjectToCountryIncomeTax-no" name="subjectToCountryIncomeTax" value="No" data-toggle="reasonForLeaving-section">
-                        <label for="subjectToCountryIncomeTax-no"></label>
-                      </div>
-                    </fieldset>
-                </div>
+                <div id="enteredCanada-section" class="hidden">
+                  <fieldset id="enteredCanadaDateFieldset" class="floating-input threequarter-width">
+                    <input class="" type="text" id="enteredCanadaDate" name="enteredCanadaDate" placeholder=" ">
+                    <label for="enteredCanadaDate" class="required-label">Date you entered Canada </label>
+                    <div class="suffix">
+                      <span class="material-icons">calendar_month</span>
+                    </div>
+                    <div class="datepicker-modal hidden"></div>
+                  </fieldset>
                 </div>
                 <!-- left canada -->
-                <div id="leftCanada-section">
-                  <fieldset id="leftCanadaDateFieldset" class="floating-input threequarter-width hidden">
+                <div id="leftCanada-section" class="hidden">
+                  <fieldset id="leftCanadaDateFieldset" class="floating-input threequarter-width">
                     <input class="" type="text" id="leftCanadaDate" name="leftCanadaDate" placeholder=" ">
                     <label for="leftCanadaDate" class="required-label">Date you left Canada </label>
                     <div class="suffix">
@@ -168,563 +118,385 @@
                     </div>
                     <div class="datepicker-modal hidden"></div>
                   </fieldset>
-                  <fieldset id="previousCanadianResident-fieldset" class="standard-input hidden" data-radio-group>
-                  <legend class="required-label">Were you a resident of Canada before leaving?</legend>
-                  <div class="group">
-                    <input type="radio" id="previousCanadianResident-yes" name="previousCanadianResident" value="Yes" data-toggle="residency-details-section">
-                    <label for="previousCanadianResident-yes"></label>
+                  <fieldset id="previousCanadianResident-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Were you a resident of Canada before leaving?</legend>
+                    <div class="group">
+                      <input type="radio" id="previousCanadianResident-yes" name="previousCanadianResident" value="Yes" data-toggle="reasonForLeaving-section">
+                      <label for="previousCanadianResident-yes"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="previousCanadianResident-no" name="previousCanadianResident" value="No" data-toggle="reasonForLeaving-section,alert-nonresleaving">
+                      <label for="previousCanadianResident-no"></label>
+                    </div>
+                  </fieldset>
+                  <div class="alert warning hidden" id="alert-nonresleaving">
+                    <span class="material-icons">warning</span>
+                    <div class="alert-content">If you were considered a non-resident of Canada while living here, you do not need to complete this form.</div>
                   </div>
-                  <div class="group">
-                    <input type="radio" id="previousCanadianResident-no" name="previousCanadianResident" value="No" data-toggle="residency-details-section,alert-nonresleaving">
-                    <label for="previousCanadianResident-no"></label>
-                  </div>
-                
-                </fieldset>
-                  <legend class="required-label">Do you usually live in Canada but leave during the day to work, study or similar in another country and return to Canada on the same day? <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a>
-               <div class="alert warning hidden" id="alert-nonresleaving">
-                <span class="material-icons">warning</span>
-                <div class="alert-content">If you were considered a non-resident of Canada while living here, you do not need to complete this form.</div>
-              </div>
-                <div id="leavingResidency-details-section" class="hidden">
+                  <div id="reasonForLeaving-section" class="hidden">
                     <hr>
-                    <h5>Usual residency</h5>
-                    <fieldset id="usualResidencyStatus-fieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Do you usually live in Canada but leave during the day to work, study or similar in another country and return to Canada on the same day? <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a>
-                      </legend>
+                    <h5>Reason for leaving Canada</h5>
+                    <fieldset id="reasonForLeaving-fieldset" class="standard-input">
+                      <legend class="required-label">Why did you leave Canada? (select all that apply) </legend>
                       <div class="group">
-                        <input type="radio" id="usualResidencyStatus-yes" name="usualResidencyStatus" value="Yes" data-toggle="otherCountryResidency-fieldset">
-                        <label for="usualResidencyStatus-otherCountry"></label>
+                        <input type="checkbox" id="reasonForLeaving-employment" name="reasonForLeaving" value="Employment or business" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-employment"></label>
                       </div>
                       <div class="group">
-                        <input type="radio" id="usualResidencyStatus-No" name="usualResidencyStatus" value="No" data-toggle="otherCountryResidency-fieldset">
-                        <label for="usualResidencyStatus-canadaSameDay"></label>
+                        <input type="checkbox" id="reasonForLeaving-retirement" name="reasonForLeaving" value="Retirement" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-retirement"></label>
                       </div>
+                      <div class="group">
+                        <input type="checkbox" id="reasonForLeaving-studying" name="reasonForLeaving" value="Studying or doing research" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-studying"></label>
+                      </div>
+                      <div class="group">
+                        <input type="checkbox" id="reasonForLeaving-spouse" name="reasonForLeaving" value="Spouse or common-law partner of an individual leaving Canada" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-spouse"></label>
+                      </div>
+                      <div class="group">
+                        <input type="checkbox" id="reasonForLeaving-vacation" name="reasonForLeaving" value="Vacation or extended travel" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-vacation"></label>
+                      </div>
+                      <div class="group">
+                        <input type="checkbox" id="reasonForLeaving-assignment" name="reasonForLeaving" value="Assignment or posting abroad by an employer" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-assignment"></label>
+                      </div>
+                      <div class="group">
+                        <input type="checkbox" id="reasonForLeaving-caregiving" name="reasonForLeaving" value="Caregiving reasons" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-caregiving"></label>
+                      </div>
+                      <div class="group">
+                        <input type="checkbox" id="reasonForLeaving-other" name="reasonForLeaving" value="Other reason not mentioned above" data-toggle="returnToCanada-fieldset">
+                        <label for="reasonForLeaving-other"></label>
+                      </div>
+                    </fieldset>
+                    <fieldset id="returnToCanada-fieldset" class="hidden standard-input" data-radio-group>
+                      <legend class="required-label">Do you have any plans to return to live in Canada? </legend>
+                      <div class="group">
+                        <input type="radio" id="returnToCanada-yes" name="returnToCanada" value="Yes" data-toggle="whenReturnToCanada-fieldset">
+                        <label for="returnToCanada-yes"></label>
+                      </div>
+                      <div class="group">
+                        <input type="radio" id="returnToCanada-no" name="returnToCanada" value="No" data-toggle="usualResidency-section">
+                        <label for="returnToCanada-no"></label>
+                      </div>
+                    </fieldset>
+                    <fieldset id="whenReturnToCanada-fieldset" class="standard-input hidden" data-radio-group>
+                      <legend class="required-label">When do you plan to return to live in Canada? </legend>
+                      <div class="group">
+                        <input type="radio" id="whenReturnToCanada-less6mo" name="whenReturnToCanada" value="Within 6 months" data-toggle="usualResidency-section">
+                        <label for="whenReturnToCanada-less6mo"></label>
+                      </div>
+                      <div class="group">
+                        <input type="radio" id="whenReturnToCanada-6motoY" name="whenReturnToCanada" value="6 months to a year" data-toggle="usualResidency-section">
+                        <label for="whenReturnToCanada-6motoY"></label>
+                      </div>
+                      <div class="group">
+                        <input type="radio" id="whenReturnToCanada-morethanY" name="whenReturnToCanada" value="More than a year" data-toggle="usualResidency-section">
+                        <label for="whenReturnToCanada-morethanY"></label>
+                      </div>
+                      <div class="group">
+                        <input type="radio" id="whenReturnToCanada-unknown" name="whenReturnToCanada" value="Unknown" data-toggle="usualResidency-section">
+                        <label for="whenReturnToCanada-unknown"></label>
+                      </div>
+                    </fieldset>
+                    <!-- < -->
+                  </div>
+                </div>
+                <!-- 
                   
-                    </fieldset>
-                    <fieldset id="otherCountryResidency-fieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Are you considered a resident of another country?</legend>
-                      <div class="group">
-                        <input type="radio" id="otherCountryResidency-yes" name="otherCountryResidency" value="Yes" data-toggle="taxAgreementFieldset">
-                        <label for="otherCountryResidency-yes"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="otherCountryResidency-no" name="otherCountryResidency" value="No" data-toggle="stayLength-section">
-                        <label for="otherCountryResidency-no"></label>
-                      </div>
-                    </fieldset>
-                    <fieldset id="taxAgreementFieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Does that country have a tax agreement with Canada? <span class="material-icons">help</span>
-                      </legend>
-                      <div class="group">
-                        <input type="radio" id="taxAgreementWithCanada-yes" name="taxAgreementWithCanada" value="Yes" data-toggle="countryIncomeTaxSubject-fieldset">
-                        <label for="taxAgreementWithCanada-yes"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="taxAgreementWithCanada-no" name="taxAgreementWithCanada" value="No" data-toggle="">
-                        <label for="taxAgreementWithCanada-no"></label>
-                      </div>
-                    </fieldset>
-                    <fieldset id="countryIncomeTaxSubject-fieldset" class="standard-input" data-radio-group>
-                      <legend class="required-label">Are you subject to income tax in that country in the same way as any other resident of that country? </legend>
-                      <div class="group">
-                        <input type="radio" id="subjectToCountryIncomeTax-yes" name="subjectToCountryIncomeTax" value="Yes" data-toggle="reasonForLeaving-section">
-                        <label for="subjectToCountryIncomeTax-yes"></label>
-                      </div>
-                      <div class="group">
-                        <input type="radio" id="subjectToCountryIncomeTax-no" name="subjectToCountryIncomeTax" value="No" data-toggle="reasonForLeaving-section">
-                        <label for="subjectToCountryIncomeTax-no"></label>
-                      </div>
-                    </fieldset>
+                  
+                   -->
+            </div>
+            <div id="usualResidency-section" class="hidden">
+              <hr>
+              <h5>Usual residency</h5>
+              <fieldset id="dailyEntry-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Do you usually live in another country but enter and leave Canada on the same day to work, study or similar? <a href="#" data-toggleLB="dailytravel-lightbox">
+                    <span class="material-icons">help</span>
+                  </a>
+                </legend>
+                </legend>
+                <div class="group">
+                  <input type="radio" id="dailyEntry-yes" name="usualResidencyStatus" value="Yes" data-toggle="otherCountryResidency-fieldset">
+                  <label for="dailyEntry-yes"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="dailyEntry-no" name="usualResidencyStatus" value="No" data-toggle="otherCountryResidency-fieldset">
+                  <label for="dailyEntry-no"></label>
+                </div>
+              </fieldset>
+              <fieldset id="dailyLeaving-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Do you usually live in Canada but leave and re-enter Canada on the same day to work, study or similar? <a href="#" data-toggleLB="ressituation-lightbox">
+                    <span class="material-icons">help</span>
+                  </a>
+                </legend>
+                </legend>
+                <div class="group">
+                  <input type="radio" id="dailyLeaving-yes" name="usualResidencyStatus" value="Yes" data-toggle="otherCountryResidency-fieldset">
+                  <label for="dailyLeaving-yes"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="dailyLeaving-no" name="usualResidencyStatus" value="No" data-toggle="otherCountryResidency-fieldset">
+                  <label for="dailyLeaving-no"></label>
+                </div>
+              </fieldset>
+              <fieldset id="otherCountryResidency-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Are you considered a resident of another country?</legend>
+                <div class="group">
+                  <input type="radio" id="otherCountryResidency-yes" name="otherCountryResidency" value="Yes" data-toggle="taxAgreementFieldset">
+                  <label for="otherCountryResidency-yes"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="otherCountryResidency-no" name="otherCountryResidency" value="No" data-toggle="stayLength-section">
+                  <label for="otherCountryResidency-no"></label>
+                </div>
+              </fieldset>
+              <fieldset id="taxAgreementFieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Does that country have a tax agreement with Canada? <span class="material-icons">help</span>
+                </legend>
+                <div class="group">
+                  <input type="radio" id="taxAgreementWithCanada-yes" name="taxAgreementWithCanada" value="Yes" data-toggle="countryIncomeTaxSubject-fieldset">
+                  <label for="taxAgreementWithCanada-yes"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="taxAgreementWithCanada-no" name="taxAgreementWithCanada" value="No" data-toggle="">
+                  <label for="taxAgreementWithCanada-no"></label>
+                </div>
+              </fieldset>
+              <fieldset id="countryIncomeTaxSubject-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Are you subject to income tax in that country in the same way as any other resident of that country? </legend>
+                <div class="group">
+                  <input type="radio" id="subjectToCountryIncomeTax-yes" name="subjectToCountryIncomeTax" value="Yes" data-toggle="">
+                  <label for="subjectToCountryIncomeTax-yes"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="subjectToCountryIncomeTax-no" name="subjectToCountryIncomeTax" value="No" data-toggle="">
+                  <label for="subjectToCountryIncomeTax-no"></label>
+                </div>
+              </fieldset>
+            </div>
+            <!--                 
+                <fieldset id="maritalStatus-fieldset" class="standard-input hidden" data-radio-group><legend class="required-label">What is your current marital status?</legend><div class="group"><input type="radio" id="maritalStatus-married" name="currentMaritalStatus" value="Married" data-toggle="residency-details-section"><label for="maritalStatus-married"></label></div><div class="group"><input type="radio" id="maritalStatus-commonLaw" name="currentMaritalStatus" value="Common-law" data-toggle="residency-details-section"><label for="maritalStatus-commonLaw"></label></div><div class="group"><input type="radio" id="maritalStatus-widowed" name="currentMaritalStatus" value="Widowed" data-toggle="residency-details-section"><label for="maritalStatus-widowed"></label></div><div class="group"><input type="radio" id="maritalStatus-divorced" name="currentMaritalStatus" value="Divorced" data-toggle="residency-details-section"><label for="maritalStatus-divorced"></label></div><div class="group"><input type="radio" id="maritalStatus-single" name="currentMaritalStatus" value="Single" data-toggle="residency-details-section"><label for="maritalStatus-single"></label></div></fieldset>
+                -->
+            <!-- <div id="stayLength-section" class="hidden">
+              <hr>
+              <h5>Length of stay</h5>
+              <fieldset id="stayLengthDuration-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">How long do you expect to live in Canada? </legend>
+                <div class="group">
+                  <input type="radio" id="stayLengthDuration-lessThanYear" name="stayLengthDuration" value="Less than a year" data-toggle="stayLengthDepartureDate-fieldset">
+                  <label for="stayLengthDuration-lessThanYear"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="stayLengthDuration-moreThanYear" name="stayLengthDuration" value="More than a year" data-toggle="stayLengthDepartureDate-fieldset">
+                  <label for="stayLengthDuration-moreThanYear"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="stayLengthDuration-notLeaving" name="stayLengthDuration" value="I do not plan to leave Canada" data-toggle="">
+                  <label for="stayLengthDuration-notLeaving"></label>
+                </div>
+              </fieldset>
+              <fieldset id="stayLengthDepartureDate-fieldset" class="floating-input threequarter-width hidden">
+                <input class="" type="text" id="stayLengthDepartureDate" name="stayLengthDepartureDate" placeholder=" ">
+                <label for="stayLengthDepartureDate" class="required-label">Date you plan to leave Canada </label>
+                <div class="suffix">
+                  <span class="material-icons">calendar_month</span>
+                </div>
+                <div class="datepicker-modal hidden"></div>
+              </fieldset>
+            </div> -->
+            <div class="btn-container">
+              <button class="btn btn-secondary back-button" type="button">Back</button>
+              <button class="btn btn-primary next-button" type="button">Next</button>
+              <button class="hidden btn btn-primary out-button" type="button" onclick="location.href='chooser.html'">Return to Canada.ca</button>
+            </div>
+            </form>
+
+            <div class="lightbox-container" id="dailytravel-lightbox">
+              <div class="lightbox">
+                <div class="header">
+                  <h3>Daily travel within or outside of Canada</h3>
+                  <button data-closebtn class="btn-tertiary" type="button">
+                    <span class="material-icons">clear</span>
+                  </button>
+                </div>
+                <div class="lightbox-content">
+                  <p>Individuals who enter Canada daily to work or study and return to their home country the same day are generally considered non-resident commuters and do not establish residential ties in Canada.</p><p>
+                    Canadians who travel daily to another country for work or study generally do not sever their residential ties with Canada and remain residents of Canada.
+                  </p>
+                </div>
+                <div class="buttons">
+                  <button class="btn-primary" data-closebtn type="button">Done</button>
                 </div>
               </div>
-             
-<!--                 
-                <fieldset id="maritalStatus-fieldset" class="standard-input hidden" data-radio-group>
-                  <legend class="required-label">What is your current marital status?</legend>
-                  <div class="group">
-                    <input type="radio" id="maritalStatus-married" name="currentMaritalStatus" value="Married" data-toggle="residency-details-section">
-                    <label for="maritalStatus-married"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="maritalStatus-commonLaw" name="currentMaritalStatus" value="Common-law" data-toggle="residency-details-section">
-                    <label for="maritalStatus-commonLaw"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="maritalStatus-widowed" name="currentMaritalStatus" value="Widowed" data-toggle="residency-details-section">
-                    <label for="maritalStatus-widowed"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="maritalStatus-divorced" name="currentMaritalStatus" value="Divorced" data-toggle="residency-details-section">
-                    <label for="maritalStatus-divorced"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="maritalStatus-single" name="currentMaritalStatus" value="Single" data-toggle="residency-details-section">
-                    <label for="maritalStatus-single"></label>
-                  </div>
-                </fieldset>
-                -->
-               
-                <div id="reasonForLeaving-section" class="hidden">
-                  <hr>
-                  <h5>Reason for leaving Canada</h5>
-                  <fieldset id="reasonForLeaving-fieldset" class="standard-input">
-                    <legend class="required-label">Why did you leave Canada? (select all that apply) </legend>
-                    <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-employment" name="reasonForLeaving" value="Employment or business" data-toggle="plannedDepartureDate-fieldset">
-                      <label for="reasonForLeaving-employment"></label>
-                    </div>
-                       <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-retirement" name="reasonForLeaving" value="Retirement" data-toggle="plannedDepartureDate-fieldset">
-                      <label for="reasonForLeaving-retirement"></label>
-                    </div>
-   
-                       <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-studying" name="reasonForLeaving" value="Studying or doing research" data-toggle="">
-                      <label for="reasonForLeaving-studying"></label>
-                    </div>
-                       <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-spouse" name="reasonForLeaving" value="Spouse or common-law partner of an individual leaving Canada" data-toggle="">
-                      <label for="reasonForLeaving-spouse"></label>
-                    </div>
-                       <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-vacation" name="reasonForLeaving" value="Vacation or extended travel" data-toggle="">
-                      <label for="reasonForLeaving-vacation"></label>
-                    </div>
-                       <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-assignment" name="reasonForLeaving" value="Assignment or posting abroad by an employer" data-toggle="">
-                      <label for="reasonForLeaving-assignment"></label>
-                    </div>
-                       <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-caregiving" name="reasonForLeaving" value="Caregiving reasons" data-toggle="">
-                      <label for="reasonForLeaving-caregiving"></label>
-                    </div>
-                    <div class="group">
-                      <input type="checkbox" id="reasonForLeaving-other" name="reasonForLeaving" value="Other reason not mentioned above" data-toggle="">
-                      <label for="reasonForLeaving-other"></label>
-                    </div>
-         
-                  </fieldset>
-                  <fieldset id="returnToCanada-fieldset" class="standard-input" data-radio-group>
-                    <legend class="required-label">Do you have any plans to return to live in Canada? </legend>
-                    <div class="group">
-                      <input type="radio" id="returnToCanada-yes" name="returnToCanada" value="Yes" data-toggle="">
-                      <label for="returnToCanada-yes"></label>
-                    </div>
-                    <div class="group">
-                      <input type="radio" id="returnToCanada-no" name="returnToCanada" value="No" data-toggle="">
-                      <label for="returnToCanada-no"></label>
-                    </div>
-            
-                  </fieldset>
-                   <fieldset id="whenReturnToCanada-fieldset" class="standard-input" data-radio-group>
-                    <legend class="required-label">Do you have any plans to return to live in Canada? </legend>
-                    <div class="group">
-                      <input type="radio" id="whenReturnToCanada-less6mo" name="whenReturnToCanada" value="Within 6 months" data-toggle="">
-                      <label for="whenReturnToCanada-less6mo"></label>
-                    </div>
-                    <div class="group">
-                      <input type="radio" id="whenReturnToCanada-6motoY" name="whenReturnToCanada" value="6 months to a year" data-toggle="">
-                      <label for="whenReturnToCanada-6motoY"></label>
-                    </div>
-                       <div class="group">
-                      <input type="radio" id="whenReturnToCanada-morethanY" name="whenReturnToCanada" value="More than a year" data-toggle="">
-                      <label for="whenReturnToCanada-morethanY"></label>
-                    </div>
-                       <div class="group">
-                      <input type="radio" id="whenReturnToCanada-unknown" name="whenReturnToCanada" value="Unknown" data-toggle="">
-                      <label for="whenReturnToCanada-unknown"></label>
-                    </div>
-            
-                  </fieldset>
+            </div>
 
-     
-                </div>
-               <div id="stayLength-section" class="hidden">
-                  <hr>
-                  <h5>Length of stay</h5>
-                  <fieldset id="stayLengthDuration-fieldset" class="standard-input" data-radio-group>
-                    <legend class="required-label">How long do you expect to live in Canada? </legend>
-                    <div class="group">
-                      <input type="radio" id="stayLengthDuration-lessThanYear" name="stayLengthDuration" value="Less than a year" data-toggle="stayLengthDepartureDate-fieldset">
-                      <label for="stayLengthDuration-lessThanYear"></label>
-                    </div>
-                    <div class="group">
-                      <input type="radio" id="stayLengthDuration-moreThanYear" name="stayLengthDuration" value="More than a year" data-toggle="stayLengthDepartureDate-fieldset">
-                      <label for="stayLengthDuration-moreThanYear"></label>
-                    </div>
-                    <div class="group">
-                      <input type="radio" id="stayLengthDuration-notLeaving" name="stayLengthDuration" value="I do not plan to leave Canada" data-toggle="">
-                      <label for="stayLengthDuration-notLeaving"></label>
-                    </div>
-                  </fieldset>
-                  <fieldset id="stayLengthDepartureDate-fieldset" class="floating-input threequarter-width hidden">
-                    <input class="" type="text" id="stayLengthDepartureDate" name="stayLengthDepartureDate" placeholder=" ">
-                    <label for="stayLengthDepartureDate" class="required-label">Date you plan to leave Canada </label>
-                    <div class="suffix">
-                      <span class="material-icons">calendar_month</span>
-                    </div>
-                    <div class="datepicker-modal hidden"></div>
-                  </fieldset>
-                </div>
-               
-                <div class="btn-container">
-                  <button class="btn btn-secondary back-button" type="button">Back</button>
-                  <button class="btn btn-primary next-button" type="button">Next</button>
-                  <button class="hidden btn btn-primary out-button" type="button" onclick="location.href='chooser.html'">Return to Canada.ca</button>
-                </div>
-              </form>
-               <div class="lightbox-container" id="excisetax-lightbox">
-                  <div class="lightbox">
-                    <div class="header">
-                      <h3>Specified person</h3>
-                      <button data-closebtn class="btn-tertiary" type="button">
-                        <span class="material-icons">clear</span>
-                      </button>
-                    </div>
-                    <div class="lightbox-content">
-                      <p>A "specified person" for GST/HST purposes is a high-volume business or a financial institution. You are classified as a specified person if you are listed as a financial institution, or if your taxable supplies (along with your associates) exceed <strong>$6 million</strong> in both your current and preceding fiscal years. For more information, go to <a href="#">Excise Tax Act</a>.</p>
-                    </div>
-                    <div class="buttons">
-                      <button class="btn-primary" data-closebtn type="button">Done</button>
-                    </div>
-                  </div>
-                </div>
-            </div>
           </div>
-        </section>
-        <section class="step" id="step-2">
-          <div class="step-header">
-            <div class="step-number">
-              <span class="step-icon material-icons">check</span>
-            </div>
-            <h2>Employment</h2>
-          </div>
-          <div class="step-content">
-            <div class="container">
-              <form id="step-2-form">
-                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
-
-                <div class="" id="s2-enteringCanada">
-                <fieldset id="foreignGovEmployee-fieldset" class="standard-input" data-radio-group>
-                  <legend class="required-label">Are you a foreign government employee, or the spouse, common-law partner, or dependent of such an employee posted in Canada?</legend>
-                  <div class="group">
-                    <input type="radio" id="foreignGovEmployee-yes" name="foreignGovEmployee" value="Yes" data-toggle="">
-                    <label for="foreignGovEmployee-yes"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="foreignGovEmployee-no" name="foreignGovEmployee" value="No" data-toggle="">
-                    <label for="foreignGovEmployee-no"></label>
-                  </div>
-                </fieldset>
-                  <fieldset id="providedDwelling-fieldset" class="standard-input" data-radio-group>
-                  <legend class="required-label">While posted by a foreign government in Canada, will you reside in a dwelling provided by the employer?</legend>
-                  <div class="group">
-                    <input type="radio" id="providedDwelling-yes" name="providedDwelling" value="Yes" data-toggle="">
-                    <label for="providedDwelling-yes"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="providedDwelling-no" name="providedDwelling" value="No" data-toggle="">
-                    <label for="providedDwelling-no"></label>
-                  </div>
-                </fieldset>
-
-                <fieldset id="reasonForLivingOutside-fieldset" class="standard-input" data-radio-group>
-                  <legend class="required-label">Why were you living outside Canada?</legend>
-                  <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-cf" name="reasonForLivingOutside" value="I am a member of the Canadian forces" data-toggle="">
-                    <label for="reasonForLivingOutside-cf"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-cfschool" name="reasonForLivingOutside" value="I am a member of the overseas Canadian Forces school staff" data-toggle="">
-                    <label for="reasonForLivingOutside-cfschool"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-cida" name="reasonForLivingOutside" value="I am a CIDA Program Worker" data-toggle="">
-                    <label for="reasonForLivingOutside-cida"></label>
-                  </div>
-                   <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-ambassador" name="reasonForLivingOutside" value="I am an ambassador, a high commissioner, an agent general of a province or territory of Canada, or an officer or servant (employee) of Canada or of a province or territory of Canada" data-toggle="">
-                    <label for="reasonForLivingOutside-ambassador"></label>
-                  </div>
-                   <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-crowncorp" name="reasonForLivingOutside" value="I am an employee or officer of a federal or provincial Canadian Crown corporation" data-toggle="">
-                    <label for="reasonForLivingOutside-crowncorp"></label>
-                  </div>
-                         <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-spouse" name="reasonForLivingOutside" value="I am the spouse or common-law partner of an individual described in one of the above" data-toggle="">
-                    <label for="reasonForLivingOutside-spouse"></label>
-                  </div>
-                    <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-dependent" name="reasonForLivingOutside" value="I am a child or dependent of any of the following described above" data-toggle="">
-                    <label for="reasonForLivingOutside-dependent"></label>
-                  </div>
-                     <div class="group">
-                    <input type="radio" id="reasonForLivingOutside-none" name="reasonForLivingOutside" value="None of the above" data-toggle="">
-                    <label for="reasonForLivingOutside-none"></label>
-                  </div>
-                  
-                </fieldset>
-                 <fieldset id="livingOutsideResident-fieldset" class="standard-input" data-radio-group>
-                  <legend class="required-label">While you (or your spouse/common-law partner) were living outside Canada, were you still considered a Canadian resident (including factual or deemed resident)?</legend>
-                  <div class="group">
-                    <input type="radio" id="livingOutsideResident-yes" name="livingOutsideResident" value="Yes" data-toggle="">
-                    <label for="livingOutsideResident-yes"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="livingOutsideResident-no" name="livingOutsideResident" value="No" data-toggle="">
-                    <label for="livingOutsideResident-no"></label>
-                  </div>
-                </fieldset>
+    </div>
+    </section>
+    <section class="step" id="step-2">
+      <div class="step-header">
+        <div class="step-number">
+          <span class="step-icon material-icons">check</span>
+        </div>
+        <h2>Employment</h2>
+      </div>
+      <div class="step-content">
+        <div class="container">
+          <form id="step-2-form">
+            <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+            <div class="" id="s2-enteringCanada">
+              <fieldset id="foreignGovEmployee-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Are you a foreign government employee, or the spouse, common-law partner, or dependent of such an employee posted in Canada?</legend>
+                <div class="group">
+                  <input type="radio" id="foreignGovEmployee-yes" name="foreignGovEmployee" value="Yes" data-toggle="">
+                  <label for="foreignGovEmployee-yes"></label>
                 </div>
-               <div class="" id="s2-leavingCanada"></div>
-                
-                <div class="btn-container">
-                <button class="btn btn-secondary back-button" type="button">Back</button>
-                <button class="btn btn-primary next-button" type="button">Next</button>
+                <div class="group">
+                  <input type="radio" id="foreignGovEmployee-no" name="foreignGovEmployee" value="No" data-toggle="">
+                  <label for="foreignGovEmployee-no"></label>
                 </div>
-              </form>
-            </div>
-          </div>
-        </section>
-        <section class="step" id="step-3">
-          <div class="step-header">
-            <div class="step-number">
-              <span class="step-icon material-icons">check</span>
-            </div>
-            <h2>Ties in Canada</h2>
-          </div>
-          <div class="step-content">
-            <div class="container">
-              <form id="step-3-form">
-                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
-                <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
-                <fieldset id="s3q1-fieldset"  class="standard-input" data-radio-group>
-                  <legend class="required-label">What kind of notice did you receive?</legend>
-                  <div class="group">
-                    <input type="radio" id="s3q1-op1" name="s3q1" value="Notice of assessment or reassessment " data-toggle="s3-noticedate-fieldset">
-                    <label for="s3q1-op1"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="s3q1-op2" name="s3q1" value="Notice of determination or redetermination" data-toggle="s3-noticedate-fieldset">
-                    <label for="s3q1-op2"></label>
-                  </div>
-                </fieldset>
-                <fieldset id="s3-noticedate-fieldset" class="hidden">
-                  <label for="s3-noticedate-field" class="required-label"> Date on notice of assessment or determination</label>
-                  <input class="ml-16px" type="date" name="s3noticedate" id="s3-noticedate-field" placeholder="YYYY-MM-DD" data-toggle="s3-date-fields,s3q4-fieldset,s3q5-fieldset,s3q6-fieldset">
-                 
-                </fieldset>
-                <fieldset id="s3-timeextension-fieldset" class="hidden">
-                  <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
-                  <label for="s3-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
-                  <textarea id="s3-timeextension" name="s3timeextension"></textarea>
-                </fieldset>
-                <div class="hidden" id="s3-date-fields">
-                  <fieldset id="tax-years-fieldset-step3" class="hidden">
-                    <label for="s3q3-field" class="required-label">Tax year(s)</label>
-                    <div class="ml-16px vertical-stack" id="tax-years-container-step3">
-                      <input class="quarter-width" id="s3q3-field" type="number" min="1900" max="2100" name="s3q3" data-array="true">
-                    </div>
-                    <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn-step3">
-                      <span class="material-icons">add_circle</span> Add another tax year </button>
-                  </fieldset>
-                  <fieldset id="fiscal-period-fieldset-step3" class="hidden">
-                    <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
-                    <input type="date" id="fiscal-period-end-step3" name="s3_fiscalperiod" class="ml-16px">
-                  </fieldset>
+              </fieldset>
+              <fieldset id="providedDwelling-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">While posted by a foreign government in Canada, will you reside in a dwelling provided by the employer?</legend>
+                <div class="group">
+                  <input type="radio" id="providedDwelling-yes" name="providedDwelling" value="Yes" data-toggle="">
+                  <label for="providedDwelling-yes"></label>
                 </div>
-                <fieldset id="s3q4-fieldset" class="hidden">
-                  <label for="s3q4-field" class="required-label">Province or territory for the tax year</label>
-                  <select id="s3q4-field" name="s3q4">
-                    <option value="" selected>(Select)</option>
-                    <option value="Alberta">Alberta</option>
-                    <option value="British Columbia">British Columbia</option>
-                    <option value="Manitoba">Manitoba</option>
-                    <option value="New Brunswick">New Brunswick</option>
-                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-                    <option value="Northwest Territories">Northwest Territories</option>
-                    <option value="Nova Scotia">Nova Scotia</option>
-                    <option value="Nunavut">Nunavut</option>
-                    <option value="Ontario">Ontario</option>
-                    <option value="Prince Edward Island">Prince Edward Island</option>
-                    <option value="Quebec">Quebec</option>
-                    <option value="Saskatchewan">Saskatchewan</option>
-                    <option value="Yukon">Yukon</option>
-                  </select>
-                </fieldset>
-                <fieldset id="s3q5-fieldset" class="hidden">
-                  <label for="s3q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
-                  <div class="input-wrapper search-wrapper full-width ml-16px">
-                    <div class="prefix">
-                      <span class="material-icons">search</span>
-                    </div>
-                    <input type="text" id="s3q5-field" name="s3q5">
-                  </div>
-                  <div class="search-dropdown hidden" id="s3q5-dropdown">
-                    <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
-                    <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
-                    <option value="1000" data-description="Revenue">1000: Revenue</option>
-                    <option value="2000" data-description="Expenses">2000: Expenses</option>
-                  </div>
-                </fieldset>
-                <table id="tax-lines-tb-step3" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
-                  <thead>
-                    <tr>
-                      <th>Tax line</th>
-                      <th>Description</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody data-placeholder=""></tbody>
-                </table>
-                <fieldset id="s3q6-fieldset" class="hidden">
-                  <label for="s3q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
-                  <textarea id="s3q6-field" name="s3q6" data-maxlength="2500" maxlength="2500"></textarea>
-                </fieldset>
-                <button class="btn btn-secondary back-button" type="button">Back</button>
-                <button class="btn btn-primary next-button" type="button">Next</button>
-              </form>
-            </div>
-          </div>
-        </section>
-        <section class="step" id="step-4">
-          <div class="step-header">
-            <div class="step-number">
-              <span class="step-icon material-icons">check</span>
-            </div>
-            <h2>Ties in another country</h2>
-          </div>
-          <div class="step-content">
-            <div class="container">
-              <form id="step-4-form">
-                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
-                <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
-                <fieldset id="s4q1-fieldset" data-radio-group>
-                  <legend class="required-label">What kind of notice did you receive?</legend>
-                  <div class="group">
-                    <input type="radio" id="s4q1-op1" name="s4q1" value="Notice of assessment or reassessment " data-toggle="s4-noticedate-fieldset">
-                    <label for="s4q1-op1"></label>
-                  </div>
-                  <div class="group">
-                    <input type="radio" id="s4q1-op2" name="s4q1" value="Notice of determination or redetermination" data-toggle="s4-noticedate-fieldset">
-                    <label for="s4q1-op2"></label>
-                  </div>
-                </fieldset>
-                <fieldset id="s4-noticedate-fieldset" class="hidden">
-                  <label for="s4-noticedate-field" class="required-label"> Date on notice of assessment or determination</label>
-                  <input class="ml-16px" type="date" name="s4noticedate" id="s4-noticedate-field" placeholder="YYYY-MM-DD" data-toggle="s4-date-fields,s4q4-fieldset,s4q5-fieldset,s4q6-fieldset">
-                  <BR>
-                </fieldset>
-                <fieldset id="s4-timeextension-fieldset" class="hidden">
-                  <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
-                  <label for="s4-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
-                  <textarea id="s4-timeextension" name="s4timeextension"></textarea>
-                </fieldset>
-                <div class="hidden" id="s4-date-fields">
-                  <fieldset id="tax-years-fieldset-step4" class="hidden">
-                    <label for="s4q3-field" class="required-label">Tax year(s)</label>
-                    <div class="ml-16px vertical-stack" id="tax-years-container-step4">
-                      <input class="quarter-width" id="s4q3-field" type="number" min="1900" max="2100" name="s4q3" data-array="true">
-                    </div>
-                    <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn-step4">
-                      <span class="material-icons">add_circle</span> Add another tax year </button>
-                  </fieldset>
-                  <fieldset id="fiscal-period-fieldset-step4" class="hidden">
-                    <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
-                    <input type="date" id="fiscal-period-end-step4" name="s4_fiscalperiod" class="ml-16px">
-                  </fieldset>
+                <div class="group">
+                  <input type="radio" id="providedDwelling-no" name="providedDwelling" value="No" data-toggle="">
+                  <label for="providedDwelling-no"></label>
                 </div>
-                <fieldset id="s4q4-fieldset" class="hidden">
-                  <label for="s4q4-field" class="required-label">Province or territory for the tax year</label>
-                  <select id="s4q4-field" name="s4q4">
-                    <option value="" selected>(Select)</option>
-                    <option value="Alberta">Alberta</option>
-                    <option value="British Columbia">British Columbia</option>
-                    <option value="Manitoba">Manitoba</option>
-                    <option value="New Brunswick">New Brunswick</option>
-                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-                    <option value="Northwest Territories">Northwest Territories</option>
-                    <option value="Nova Scotia">Nova Scotia</option>
-                    <option value="Nunavut">Nunavut</option>
-                    <option value="Ontario">Ontario</option>
-                    <option value="Prince Edward Island">Prince Edward Island</option>
-                    <option value="Quebec">Quebec</option>
-                    <option value="Saskatchewan">Saskatchewan</option>
-                    <option value="Yukon">Yukon</option>
-                  </select>
-                </fieldset>
-                <fieldset id="s4q5-fieldset" class="hidden">
-                  <label for="s4q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
-                  <div class="input-wrapper search-wrapper full-width ml-16px">
-                    <div class="prefix">
-                      <span class="material-icons">search</span>
-                    </div>
-                    <input type="text" id="s4q5-field" name="s4q5">
-                  </div>
-                  <div class="search-dropdown hidden" id="s4q5-dropdown">
-                    <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
-                    <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
-                    <option value="1000" data-description="Revenue">1000: Revenue</option>
-                    <option value="2000" data-description="Expenses">2000: Expenses</option>
-                  </div>
-                </fieldset>
-                <table id="tax-lines-tb-step4" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
-                  <thead>
-                    <tr>
-                      <th>Tax line</th>
-                      <th>Description</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody data-placeholder=""></tbody>
-                </table>
-                <fieldset id="s4q6-fieldset" class="hidden">
-                  <label for="s4q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
-                  <textarea id="s4q6-field" name="s4q6" data-maxlength="2500" maxlength="2500"></textarea>
-                </fieldset>
-                <button class="btn btn-secondary back-button" type="button">Back</button>
-                <button class="btn btn-primary next-button" type="button">Next</button>
-              </form>
+              </fieldset>
+              <fieldset id="reasonForLivingOutside-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">Why were you living outside Canada?</legend>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-cf" name="reasonForLivingOutside" value="I am a member of the Canadian forces" data-toggle="">
+                  <label for="reasonForLivingOutside-cf"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-cfschool" name="reasonForLivingOutside" value="I am a member of the overseas Canadian Forces school staff" data-toggle="">
+                  <label for="reasonForLivingOutside-cfschool"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-cida" name="reasonForLivingOutside" value="I am a CIDA Program Worker" data-toggle="">
+                  <label for="reasonForLivingOutside-cida"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-ambassador" name="reasonForLivingOutside" value="I am an ambassador, a high commissioner, an agent general of a province or territory of Canada, or an officer or servant (employee) of Canada or of a province or territory of Canada" data-toggle="">
+                  <label for="reasonForLivingOutside-ambassador"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-crowncorp" name="reasonForLivingOutside" value="I am an employee or officer of a federal or provincial Canadian Crown corporation" data-toggle="">
+                  <label for="reasonForLivingOutside-crowncorp"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-spouse" name="reasonForLivingOutside" value="I am the spouse or common-law partner of an individual described in one of the above" data-toggle="">
+                  <label for="reasonForLivingOutside-spouse"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-dependent" name="reasonForLivingOutside" value="I am a child or dependent of any of the following described above" data-toggle="">
+                  <label for="reasonForLivingOutside-dependent"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="reasonForLivingOutside-none" name="reasonForLivingOutside" value="None of the above" data-toggle="">
+                  <label for="reasonForLivingOutside-none"></label>
+                </div>
+              </fieldset>
+              <fieldset id="livingOutsideResident-fieldset" class="standard-input" data-radio-group>
+                <legend class="required-label">While you (or your spouse/common-law partner) were living outside Canada, were you still considered a Canadian resident (including factual or deemed resident)?</legend>
+                <div class="group">
+                  <input type="radio" id="livingOutsideResident-yes" name="livingOutsideResident" value="Yes" data-toggle="">
+                  <label for="livingOutsideResident-yes"></label>
+                </div>
+                <div class="group">
+                  <input type="radio" id="livingOutsideResident-no" name="livingOutsideResident" value="No" data-toggle="">
+                  <label for="livingOutsideResident-no"></label>
+                </div>
+              </fieldset>
             </div>
-          </div>
-        </section>
-        <section class="step" id="step-5">
-          <div class="step-header">
-            <div class="step-number">
-              <span class="step-icon material-icons">check</span>
+            <div class="" id="s2-leavingCanada"></div>
+            <div class="btn-container">
+              <button class="btn btn-secondary back-button" type="button">Back</button>
+              <button class="btn btn-primary next-button" type="button">Next</button>
             </div>
-            <h2>Review</h2>
-          </div>
-          <div class="step-content">
-            <div class="container">
-              <form id="step-5-form">
-                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
-                <div id="s5-review-container"></div>
-              </form>
-            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="step" id="step-3">
+      <div class="step-header">
+        <div class="step-number">
+          <span class="step-icon material-icons">check</span>
+        </div>
+        <h2>Ties in Canada</h2>
+      </div>
+      <div class="step-content">
+        <div class="container">
+          <form id="step-3-form">
+            <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+    
             <button class="btn btn-secondary back-button" type="button">Back</button>
-            <button id="appsubmit-btn-step5" class="btn btn-primary" type="button">Submit</button>
-          </div>
-        </section>
-        <section class="step" id="step-6">
-          <div class="step-header">
-            <div class="step-number">
-              <span class="step-icon material-icons">check</span>
-            </div>
-            <h2>Result</h2>
-          </div>
-          <div class="step-content">
-            <div class="container">
-              <form id="step-6-form">
-                <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
-                <div id="s6-review-container"></div>
-              </form>
-            </div>
-            <button class="btn btn-secondary back-button" type="button">Back</button>
-            <button id="appsubmit-btn-step6" class="btn btn-primary" type="button">Submit</button>
-          </div>
-        </section>
-      </main>
+            <button class="btn btn-primary next-button" type="button">Next</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="step" id="step-4">
+      <div class="step-header">
+        <div class="step-number">
+          <span class="step-icon material-icons">check</span>
+        </div>
+        <h2>Ties in another country</h2>
+      </div>
+      <div class="step-content">
+        <div class="container">
+          <form id="step-4-form">
+            <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+          
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="step" id="step-5">
+      <div class="step-header">
+        <div class="step-number">
+          <span class="step-icon material-icons">check</span>
+        </div>
+        <h2>Review</h2>
+      </div>
+      <div class="step-content">
+        <div class="container">
+          <form id="step-5-form">
+            <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+            <div id="s5-review-container"></div>
+          </form>
+        </div>
+        <button class="btn btn-secondary back-button" type="button">Back</button>
+        <button id="appsubmit-btn-step5" class="btn btn-primary" type="button">Submit</button>
+      </div>
+    </section>
+    <section class="step" id="step-6">
+      <div class="step-header">
+        <div class="step-number">
+          <span class="step-icon material-icons">check</span>
+        </div>
+        <h2>Result</h2>
+      </div>
+      <div class="step-content">
+        <div class="container">
+          <form id="step-6-form">
+            <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
+            <div id="s6-review-container"></div>
+          </form>
+        </div>
+        <button class="btn btn-secondary back-button" type="button">Back</button>
+        <button id="appsubmit-btn-step6" class="btn btn-primary" type="button">Submit</button>
+      </div>
+    </section>
+    </main>
     </div>
     <script src="scripts.js"></script>
   </body>
