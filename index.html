@@ -86,11 +86,11 @@
                 <fieldset id="residencySituation-fieldset" class="standard-input" data-radio-group>
                   <legend class="required-label">Select which situation applies to you <a href="#" data-toggleLB="ressituation-lightbox"><span class="material-icons">help</span></a></legend>
                   <div class="group">
-                    <input type="radio" id="residencySituation-entered" name="residencySituation" value="I entered Canada" data-toggle="enteredCanadaDateFieldset,maritalStatus-fieldset">
+                    <input type="radio" id="residencySituation-entered" name="residencySituation" value="I entered Canada" data-toggle="enteredCanadaDateFieldset,maritalStatus-fieldset" data-flow="0">
                     <label for="residencySituation-entered"></label>
                   </div>
                   <div class="group">
-                    <input type="radio" id="residencySituation-left" name="residencySituation" value="I left Canada" data-toggle="leftCanadaDateFieldset,maritalStatus-fieldset,previousCanadianResident-fieldset">
+                    <input type="radio" id="residencySituation-left" name="residencySituation" value="I left Canada" data-toggle="leftCanadaDateFieldset,maritalStatus-fieldset,previousCanadianResident-fieldset" data-flow="1">
                     <label for="residencySituation-left"></label>
                   </div>
                 </fieldset>
@@ -200,40 +200,89 @@
                   <fieldset id="countryIncomeTaxSubject-fieldset" class="standard-input" data-radio-group>
                     <legend class="required-label">Are you subject to income tax in that country in the same way as any other resident of that country? </legend>
                     <div class="group">
-                      <input type="radio" id="subjectToCountryIncomeTax-yes" name="subjectToCountryIncomeTax" value="Yes" data-toggle="stayLength-section">
+                      <input type="radio" id="subjectToCountryIncomeTax-yes" name="subjectToCountryIncomeTax" value="Yes" data-toggle="reasonForLeaving-section">
                       <label for="subjectToCountryIncomeTax-yes"></label>
                     </div>
                     <div class="group">
-                      <input type="radio" id="subjectToCountryIncomeTax-no" name="subjectToCountryIncomeTax" value="No" data-toggle=""></n                      <label for="subjectToCountryIncomeTax-no"></label>
+                      <input type="radio" id="subjectToCountryIncomeTax-no" name="subjectToCountryIncomeTax" value="No" data-toggle="reasonForLeaving-section">
+                      <label for="subjectToCountryIncomeTax-no"></label>
                     </div>
                   </fieldset>
                 </div>
                 <div id="reasonForLeaving-section" class="">
                   <hr>
                   <h5>Reason for leaving Canada</h5>
-                  <fieldset id="expectedStayDuration-fieldset" class="standard-input" data-radio-group>
-                    <legend class="required-label">How long do you expect to live in Canada? </legend>
+                  <fieldset id="reasonForLeaving-fieldset" class="standard-input">
+                    <legend class="required-label">Why did you leave Canada? (select all that apply) </legend>
                     <div class="group">
-                      <input type="radio" id="expectedStayDuration-lessThanYear" name="expectedStayDuration" value="Less than a year" data-toggle="plannedDepartureDate-fieldset">
-                      <label for="expectedStayDuration-lessThanYear"></label>
+                      <input type="checkbox" id="reasonForLeaving-employment" name="reasonForLeaving" value="Employment or business" data-toggle="plannedDepartureDate-fieldset">
+                      <label for="reasonForLeaving-employment"></label>
+                    </div>
+                       <div class="group">
+                      <input type="checkbox" id="reasonForLeaving-retirement" name="reasonForLeaving" value="Retirement" data-toggle="plannedDepartureDate-fieldset">
+                      <label for="reasonForLeaving-retirement"></label>
+                    </div>
+   
+                       <div class="group">
+                      <input type="checkbox" id="reasonForLeaving-studying" name="reasonForLeaving" value="Studying or doing research" data-toggle="">
+                      <label for="reasonForLeaving-studying"></label>
+                    </div>
+                       <div class="group">
+                      <input type="checkbox" id="reasonForLeaving-spouse" name="reasonForLeaving" value="Spouse or common-law partner of an individual leaving Canada" data-toggle="">
+                      <label for="reasonForLeaving-spouse"></label>
+                    </div>
+                       <div class="group">
+                      <input type="checkbox" id="reasonForLeaving-vacation" name="reasonForLeaving" value="Vacation or extended travel" data-toggle="">
+                      <label for="reasonForLeaving-vacation"></label>
+                    </div>
+                       <div class="group">
+                      <input type="checkbox" id="reasonForLeaving-assignment" name="reasonForLeaving" value="Assignment or posting abroad by an employer" data-toggle="">
+                      <label for="reasonForLeaving-assignment"></label>
+                    </div>
+                       <div class="group">
+                      <input type="checkbox" id="reasonForLeaving-caregiving" name="reasonForLeaving" value="Caregiving reasons" data-toggle="">
+                      <label for="reasonForLeaving-caregiving"></label>
                     </div>
                     <div class="group">
-                      <input type="radio" id="expectedStayDuration-moreThanYear" name="expectedStayDuration" value="More than a year" data-toggle="plannedDepartureDate-fieldset">
-                      <label for="expectedStayDuration-moreThanYear"></label>
+                      <input type="checkbox" id="reasonForLeaving-other" name="reasonForLeaving" value="Other reason not mentioned above" data-toggle="">
+                      <label for="reasonForLeaving-other"></label>
                     </div>
-                    <div class="group">
-                      <input type="radio" id="expectedStayDuration-notLeaving" name="expectedStayDuration" value="I do not plan to leave Canada" data-toggle="">
-                      <label for="expectedStayDuration-notLeaving"></label>
-                    </div>
+         
                   </fieldset>
-                  <fieldset id="plannedDepartureDate-fieldset" class="floating-input threequarter-width hidden">
-                    <input class="" type="text" id="plannedDepartureDate" name="plannedDepartureDate" placeholder=" ">
-                    <label for="plannedDepartureDate" class="required-label">Date you plan to leave Canada </label>
-                    <div class="suffix">
-                      <span class="material-icons">calendar_month</span>
+                  <fieldset id="returnToCanada-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Do you have any plans to return to live in Canada? </legend>
+                    <div class="group">
+                      <input type="radio" id="returnToCanada-yes" name="returnToCanada" value="Yes" data-toggle="">
+                      <label for="returnToCanada-yes"></label>
                     </div>
-                    <div class="datepicker-modal hidden"></div>
+                    <div class="group">
+                      <input type="radio" id="returnToCanada-no" name="returnToCanada" value="No" data-toggle="">
+                      <label for="returnToCanada-no"></label>
+                    </div>
+            
                   </fieldset>
+                   <fieldset id="whenReturnToCanada-fieldset" class="standard-input" data-radio-group>
+                    <legend class="required-label">Do you have any plans to return to live in Canada? </legend>
+                    <div class="group">
+                      <input type="radio" id="whenReturnToCanada-less6mo" name="whenReturnToCanada" value="Within 6 months" data-toggle="">
+                      <label for="whenReturnToCanada-less6mo"></label>
+                    </div>
+                    <div class="group">
+                      <input type="radio" id="whenReturnToCanada-6motoY" name="whenReturnToCanada" value="6 months to a year" data-toggle="">
+                      <label for="whenReturnToCanada-6motoY"></label>
+                    </div>
+                       <div class="group">
+                      <input type="radio" id="whenReturnToCanada-morethanY" name="whenReturnToCanada" value="More than a year" data-toggle="">
+                      <label for="whenReturnToCanada-morethanY"></label>
+                    </div>
+                       <div class="group">
+                      <input type="radio" id="whenReturnToCanada-unknown" name="whenReturnToCanada" value="Unknown" data-toggle="">
+                      <label for="whenReturnToCanada-unknown"></label>
+                    </div>
+            
+                  </fieldset>
+
+     
                 </div>
                <div id="stayLength-section" class="hidden">
                   <hr>
@@ -299,87 +348,85 @@
             <div class="container">
               <form id="step-2-form">
                 <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
-                <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
-                <fieldset id="s2q1-fieldset" data-radio-group>
-                  <legend class="required-label">What kind of notice did you receive?</legend>
+
+                <div class="" id="s2-enteringCanada">
+                <fieldset id="foreignGovEmployee-fieldset" class="standard-input" data-radio-group>
+                  <legend class="required-label">Are you a foreign government employee, or the spouse, common-law partner, or dependent of such an employee posted in Canada?</legend>
                   <div class="group">
-                    <input type="radio" id="s2q1-op1" name="s2q1" value="Notice of assessment or reassessment " data-toggle="s2-noticedate-fieldset">
-                    <label for="s2q1-op1"></label>
+                    <input type="radio" id="foreignGovEmployee-yes" name="foreignGovEmployee" value="Yes" data-toggle="">
+                    <label for="foreignGovEmployee-yes"></label>
                   </div>
                   <div class="group">
-                    <input type="radio" id="s2q1-op2" name="s2q1" value="Notice of determination or redetermination" data-toggle="s2-noticedate-fieldset">
-                    <label for="s2q1-op2"></label>
+                    <input type="radio" id="foreignGovEmployee-no" name="foreignGovEmployee" value="No" data-toggle="">
+                    <label for="foreignGovEmployee-no"></label>
                   </div>
                 </fieldset>
-                <fieldset id="s2-timeextension-fieldset" class="hidden">
-                  <p>You have 90 days from the notice date to file an objection. An extension may be granted if you explain why you did not file your objection within the time limit.</p>
-                  <label for="s2-timeextension" class="required-label">Explain why you did not file your objection within the time limit. </label>
-                  <textarea id="s2-timeextension" name="s2timeextension"></textarea>
+                  <fieldset id="providedDwelling-fieldset" class="standard-input" data-radio-group>
+                  <legend class="required-label">While posted by a foreign government in Canada, will you reside in a dwelling provided by the employer?</legend>
+                  <div class="group">
+                    <input type="radio" id="providedDwelling-yes" name="providedDwelling" value="Yes" data-toggle="">
+                    <label for="providedDwelling-yes"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="providedDwelling-no" name="providedDwelling" value="No" data-toggle="">
+                    <label for="providedDwelling-no"></label>
+                  </div>
                 </fieldset>
-                <div class="hidden" id="s2-date-fields">
-                  <fieldset id="tax-years-fieldset" class="hidden">
-                    <label for="s2q3-field" class="required-label">Tax year(s)</label>
-                    <div class="ml-16px vertical-stack" id="tax-years-container">
-                      <input class="quarter-width" id="s2q3-field" type="number" min="1900" max="2100" name="s2q3" data-array="true">
-                    </div>
-                    <button class="btn ml-16px btn-secondary" type="button" id="add-tax-year-btn">
-                      <span class="material-icons">add_circle</span> Add another tax year </button>
-                  </fieldset>
-                  <fieldset id="fiscal-period-fieldset" class="hidden">
-                    <label for="fiscal-period-end" class="required-label">Fiscal period end</label>
-                    <input type="date" id="fiscal-period-end" name="s2_fiscalperiod" class="ml-16px">
-                  </fieldset>
+
+                <fieldset id="reasonForLivingOutside-fieldset" class="standard-input" data-radio-group>
+                  <legend class="required-label">Why were you living outside Canada?</legend>
+                  <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-cf" name="reasonForLivingOutside" value="I am a member of the Canadian forces" data-toggle="">
+                    <label for="reasonForLivingOutside-cf"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-cfschool" name="reasonForLivingOutside" value="I am a member of the overseas Canadian Forces school staff" data-toggle="">
+                    <label for="reasonForLivingOutside-cfschool"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-cida" name="reasonForLivingOutside" value="I am a CIDA Program Worker" data-toggle="">
+                    <label for="reasonForLivingOutside-cida"></label>
+                  </div>
+                   <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-ambassador" name="reasonForLivingOutside" value="I am an ambassador, a high commissioner, an agent general of a province or territory of Canada, or an officer or servant (employee) of Canada or of a province or territory of Canada" data-toggle="">
+                    <label for="reasonForLivingOutside-ambassador"></label>
+                  </div>
+                   <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-crowncorp" name="reasonForLivingOutside" value="I am an employee or officer of a federal or provincial Canadian Crown corporation" data-toggle="">
+                    <label for="reasonForLivingOutside-crowncorp"></label>
+                  </div>
+                         <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-spouse" name="reasonForLivingOutside" value="I am the spouse or common-law partner of an individual described in one of the above" data-toggle="">
+                    <label for="reasonForLivingOutside-spouse"></label>
+                  </div>
+                    <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-dependent" name="reasonForLivingOutside" value="I am a child or dependent of any of the following described above" data-toggle="">
+                    <label for="reasonForLivingOutside-dependent"></label>
+                  </div>
+                     <div class="group">
+                    <input type="radio" id="reasonForLivingOutside-none" name="reasonForLivingOutside" value="None of the above" data-toggle="">
+                    <label for="reasonForLivingOutside-none"></label>
+                  </div>
+                  
+                </fieldset>
+                 <fieldset id="livingOutsideResident-fieldset" class="standard-input" data-radio-group>
+                  <legend class="required-label">While you (or your spouse/common-law partner) were living outside Canada, were you still considered a Canadian resident (including factual or deemed resident)?</legend>
+                  <div class="group">
+                    <input type="radio" id="livingOutsideResident-yes" name="livingOutsideResident" value="Yes" data-toggle="">
+                    <label for="livingOutsideResident-yes"></label>
+                  </div>
+                  <div class="group">
+                    <input type="radio" id="livingOutsideResident-no" name="livingOutsideResident" value="No" data-toggle="">
+                    <label for="livingOutsideResident-no"></label>
+                  </div>
+                </fieldset>
                 </div>
-                <fieldset id="s2q4-fieldset" class="hidden">
-                  <label for="s2q4-field" class="required-label">Province or territory for the tax year</label>
-                  <select id="s2q4-field" name="s2q4">
-                    <option value="" selected>(Select)</option>
-                    <option value="Alberta">Alberta</option>
-                    <option value="British Columbia">British Columbia</option>
-                    <option value="Manitoba">Manitoba</option>
-                    <option value="New Brunswick">New Brunswick</option>
-                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-                    <option value="Northwest Territories">Northwest Territories</option>
-                    <option value="Nova Scotia">Nova Scotia</option>
-                    <option value="Nunavut">Nunavut</option>
-                    <option value="Ontario">Ontario</option>
-                    <option value="Prince Edward Island">Prince Edward Island</option>
-                    <option value="Quebec">Quebec</option>
-                    <option value="Saskatchewan">Saskatchewan</option>
-                    <option value="Yukon">Yukon</option>
-                  </select>
-                </fieldset>
-                <fieldset id="s2q5-fieldset" class="hidden">
-                  <label for="s2q5-field" class="required-label">Search for the tax line that you want to object to (either by line number or keyword).</label>
-                  <div class="input-wrapper search-wrapper full-width ml-16px">
-                    <div class="prefix">
-                      <span class="material-icons">search</span>
-                    </div>
-                    <input type="text" id="s2q5-field" name="s2q5">
-                  </div>
-                  <div class="search-dropdown hidden" id="s2q5-dropdown">
-                    <option value="3640" data-description="Total liabilities and shareholder equity">3640: Total liabilities and shareholder equity</option>
-                    <option value="3680" data-description="Net income/loss">3680: Net income/loss</option>
-                    <option value="1000" data-description="Revenue">1000: Revenue</option>
-                    <option value="2000" data-description="Expenses">2000: Expenses</option>
-                  </div>
-                </fieldset>
-                <table id="tax-lines-tb" class="hidden table table-min ml-16px dynamic-table" cellpadding="0" cellspacing="0" required>
-                  <thead>
-                    <tr>
-                      <th>Tax line</th>
-                      <th>Description</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody data-placeholder=""></tbody>
-                </table>
-                <fieldset id="s2q6-fieldset" class="hidden">
-                  <label for="s2q6-field" class="required-label">Describe the details, facts and reasons for your objection.</label>
-                  <textarea id="s2q6-field" name="s2q6" data-maxlength="2500" maxlength="2500"></textarea>
-                </fieldset>
+               <div class="" id="s2-leavingCanada"></div>
+                
+                <div class="btn-container">
                 <button class="btn btn-secondary back-button" type="button">Back</button>
                 <button class="btn btn-primary next-button" type="button">Next</button>
+                </div>
               </form>
             </div>
           </div>
@@ -396,7 +443,7 @@
               <form id="step-3-form">
                 <div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
                 <p>The date and tax year can be found in the top, right-hand corner of your notice. </p>
-                <fieldset id="s3q1-fieldset" data-radio-group>
+                <fieldset id="s3q1-fieldset"  class="standard-input" data-radio-group>
                   <legend class="required-label">What kind of notice did you receive?</legend>
                   <div class="group">
                     <input type="radio" id="s3q1-op1" name="s3q1" value="Notice of assessment or reassessment " data-toggle="s3-noticedate-fieldset">
