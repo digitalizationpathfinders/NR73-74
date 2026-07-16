@@ -195,17 +195,19 @@ class Stepper {
 
     }
 }
+
+
 class Step1Handler {
     constructor() {
      //add event listener to step
      this.residencyQ = document.getElementById("residencySituation-fieldset");
-     this.userFlow = null;
-
+    
      this.residencyQ.addEventListener("change", ()=> {
-      this.userFlow = this.residencyQ.querySelector("input:checked").getAttribute("data-flow");
+      sessionStorage.setItem("userFlow", this.residencyQ.querySelector("input:checked").getAttribute("data-flow"));
      
      })
     }
+    
 
 }
 class Step2Handler {
