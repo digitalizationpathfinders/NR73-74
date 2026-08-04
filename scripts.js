@@ -183,7 +183,12 @@ class Stepper {
                 case 3:
                     this.stepHandlers[stepNum] = new Step3Handler(this);
                     break;
-
+                case 4:
+                    this.stepHandlers[stepNum] = new Step4Handler(this);
+                    break;
+                case 5:
+                this.stepHandlers[stepNum] = new Step5Handler(this);
+                break;
 
             }
         }
@@ -206,6 +211,10 @@ class Step1Handler {
       this.residencyQ.addEventListener('change', (event) => { 
         residencyFlow = this.residencyQ.querySelector('input[name="residencySituation"]:checked').getAttribute('data-flow');
        });
+
+    this.dateEnteredCanada = new DatepickerObj("enteredCanadaDate");
+    this.dateLeftCanada = new DatepickerObj("leftCanadaDate");
+    this.datePlanLeave = new DatepickerObj("datePlanLeave");
         
     }
     
@@ -252,8 +261,7 @@ class Step3Handler {
 class Step4Handler {
     constructor(stepper) {
         this.stepper = stepper;
-        this.reviewContainer = document.getElementById("s3-review-container");
-        this.submitBtn = document.getElementById("appsubmit-btn");
+        this.reviewContainer = document.getElementById("review-container");
         this.populateReview();
 
         // Listen for navigation events
@@ -261,14 +269,7 @@ class Step4Handler {
             this.stepper.setActive(this.stepper.steps[event.detail.index]);
         });
 
-        this.submitBtn.addEventListener('click', () => {
-            sessionStorage.setItem("navigatingToConfirmation", "true");
-            // Store necessary data in sessionStorage to retrieve on confirmation page
 
-
-            // Redirect to confirmation page
-            window.location.href = "confirmation.html";
-        });
     }
 
     populateReview() {
@@ -373,6 +374,69 @@ class Step4Handler {
         return label.replace(/^\*\s*/, "").trim() || name;
     }
 
+
+}
+
+class Step5Handler {
+    constructor() {
+        this.enteringCanadaResultSection = document.getElementById("entering-result-section");
+        this.leavingCanadaResultSection = document.getElementById("leaving-result-section");
+
+      
+       
+
+        if(residencyFlow == 0){ 
+            this.enteringCanadaResultSection.classList.remove("hidden");
+            this.leavingCanadaResultSection.classList.add("hidden");
+            this.nonres = document.getElementById("nonres-entering");
+            this.deemedRes= document.getElementById("deemeedres-entering");
+            this.deemedNonRes = document.getElementById("deemeednonres-entering");
+            this.factualRes = document.getElementById("factualres-entering");
+
+        }
+        else {
+            this.leavingCanadaResultSection.classList.remove("hidden");
+            this.enteringCanadaResultSection.classList.add("hidden");
+            this.nonres = document.getElementById("nonres-leaving");
+            this.deemedRes = document.getElementById("deemeedres-leaving");
+            this.deemedNonRes = document.getElementById("deemeednonres-leaving");
+            this.factualRes = document.getElementById("factualres-leaving");
+        }
+
+        var storedResult = DataManager.getData("result");
+
+        switch (storedResult) {
+            case "nonres":
+                this.nonres.classList.remove("hidden");
+                this.deemedRes.classList.add("hidden");
+                this.deemedNonRes.classList.add("hidden");
+                this.factualRes.classList.add("hidden");
+                break;
+            case "deemedres":
+                this.nonres.classList.add("hidden");
+                this.deemedRes.classList.remove("hidden");
+                this.deemedNonRes.classList.add("hidden");
+                this.factualRes.classList.add("hidden");
+                break;
+            case "deeemednonres":
+                this.nonres.classList.add("hidden");
+                this.deemedRes.classList.add("hidden");
+                this.deemedNonRes.classList.remove("hidden");
+                this.factualRes.classList.add("hidden");
+                break;
+            case "factual":
+                this.nonres.classList.add("hidden");
+                this.deemedRes.classList.add("hidden");
+                this.deemedNonRes.classList.add("hidden");
+                this.factualRes.classList.remove("hidden");
+                break;
+
+        }
+
+          
+
+    }
+   
 
 }
 
@@ -661,14 +725,21 @@ class TableObj {
 class DatepickerObj {
     constructor(inputId) {
         this.input = document.getElementById(inputId);
-        this.wrapper = this.input.closest(".input-wrapper");
+        this.wrapper = this.input.parentElement;
         this.icon = this.wrapper.querySelector(".suffix");
-        this.modal = this.wrapper.querySelector(".datepicker-modal");
+        this.modal = this.wrapper.parentElement.querySelector(".datepicker-modal");
 
         // Open on icon click
         this.icon.addEventListener("click", (e) => {
             e.stopPropagation();
             DatepickerObj.closeAll(); // Close other open ones
+            this.open();
+        });
+
+        // Open on input click
+        this.input.addEventListener("click", (e) => {
+            e.stopPropagation();
+            DatepickerObj.closeAll();
             this.open();
         });
 
@@ -1064,10 +1135,10 @@ class ProgressiveDisclosure {
         this.initializeEventListeners();
         this.outConditions = [
             //step 1 selections that result in an "out"
-            ["s0q1-op2"],
-            ["s1q2-op1"],
-            ["s1q2-op3"],
-            ["s1q3-op2"]
+            // ["s0q1-op2"],
+            // ["s1q2-op1"],
+            // ["s1q2-op3"],
+            // ["s1q3-op2"]
         ];
 
     }
@@ -1246,7 +1317,18 @@ class ProgressiveDisclosure {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    let taskData = sessionStorage.getItem("selectedTask");
 
+    if (!taskData) {
+        // If user somehow lands here without choosing a task, redirect them back
+        window.location.href = "chooser.html";
+    } else {
+        taskData = JSON.parse(taskData);
+        console.log("Loaded Task Data:", taskData);
+
+        // Store data for use in other scripts
+        DataManager.saveData("result", taskData.result);
+    }
     // Initialize Stepper
     const stepper = new Stepper('.step');
 
@@ -1286,18 +1368,6 @@ document.addEventListener('DOMContentLoaded', () => {
         new CharacterCounter(textarea);
     });
 
-    // //Add asterisks to all required fields
-    // const requiredInputs = document.querySelectorAll('.required-label');
-    // requiredInputs.forEach(input => {
-    //     if (input) {
-
-    //         const asterisk = document.createElement('span');
-    //         asterisk.textContent = '* ';
-    //         asterisk.classList.add('label-ast');
-
-    //         input.insertBefore(asterisk, input.firstChild);
-    //     }
-    // });
 
 
     //Accordion functionality

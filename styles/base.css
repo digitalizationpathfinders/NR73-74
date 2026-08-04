@@ -1229,7 +1229,9 @@ label span, legend span {
  .error {
   border-left-color: var(--error);
  }
-
+.success {
+  border-left-color: var(--success);
+ }
  .info span {
   color:var(--info)
  }
