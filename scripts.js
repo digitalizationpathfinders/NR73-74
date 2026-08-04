@@ -196,30 +196,60 @@ class Stepper {
     }
 }
 
+var residencyFlow = null;
 
 class Step1Handler {
     constructor() {
      //add event listener to step
-     this.residencyQ = document.getElementById("residencySituation-fieldset");
-    
-     this.residencyQ.addEventListener("change", ()=> {
-      sessionStorage.setItem("userFlow", this.residencyQ.querySelector("input:checked").getAttribute("data-flow"));
-     
-     })
+      this.dailyTravelLightbox = new FormLightbox(document.getElementById("dailytravel-lightbox"));
+      this.residencyQ = document.getElementById('residencySituation-fieldset');
+      this.residencyQ.addEventListener('change', (event) => { 
+        residencyFlow = this.residencyQ.querySelector('input[name="residencySituation"]:checked').getAttribute('data-flow');
+       });
+        
     }
     
 
 }
 class Step2Handler {
     constructor() {
+       
+          this.dwellingLB = document.getElementById("availableDwelling-canada-lightbox");
+          this.dwellingAvailableLightbox = new FormLightbox(document.getElementById("availableDwelling-canada-lightbox"));
 
-      
+          if(residencyFlow == 0){
+            this.dwellingLB.querySelector("#entering").classList.remove("hidden");
+            this.dwellingLB.querySelector("#leaving").classList.add("hidden");
+          }
+          else{
+            this.dwellingLB.querySelector("#leaving").classList.remove("hidden");
+            this.dwellingLB.querySelector("#entering").classList.add("hidden");
+          }
+    }
+   
+
+}
+class Step3Handler {
+    constructor() {
+        this.dwellingLB = document.getElementById("availableDwelling-anothercountry-lightbox");
+
+        this.dwellingAvailableLightbox = new FormLightbox(document.getElementById("availableDwelling-anothercountry-lightbox"));
+
+        if(residencyFlow == 0){
+            this.dwellingLB.querySelector("#entering").classList.remove("hidden");
+            this.dwellingLB.querySelector("#leaving").classList.add("hidden");
+          }
+        else{
+            this.dwellingLB.querySelector("#leaving").classList.remove("hidden");
+            this.dwellingLB.querySelector("#entering").classList.add("hidden");
+          }
+
     }
    
 
 }
 
-class Step3Handler {
+class Step4Handler {
     constructor(stepper) {
         this.stepper = stepper;
         this.reviewContainer = document.getElementById("s3-review-container");
@@ -246,13 +276,19 @@ class Step3Handler {
 
         const steps = [{
                 stepNum: 1,
-                title: "Provide objection information",
+                title: "General information",
                 storageKey: "stepData_1"
             },
             {
                 stepNum: 2,
-                title: "Describe your objection",
+                title: "Ties in Canada",
                 storageKey: "stepData_2"
+
+            },
+             {
+                stepNum: 3,
+                title: "Ties in another country",
+                storageKey: "stepData_3"
 
             }
         ];
@@ -269,29 +305,7 @@ class Step3Handler {
                 let value = data[key];
                 if (value == null) return;
 
-                // Only create a subtable for s2q5_lines
-                if (key === "s2q5") {
-                    subTableData = {
-                        title: "Tax line you want to object to",
-                        headers: ["Line", "Description"],
-                        columns: ["line", "description"],
-                        rows: value
-                    };
-                    return; // skip adding s2q5_lines to main data table
-                }
-
-                if (key === "s1biz-accountype") {
-                    const select = document.getElementById("s1biz-accountype"); // your select input
-                    if (select) {
-                        value = select.selectedOptions[0]?.text || value;
-                    }
-                }
-
-                // Format dates
-                if (key.toLowerCase().includes("date")) {
-                    value = this.formatDate(value);
-                }
-
+            
                 // Use proper labels
                 const label = this.getLabelForInput(key);
                 formattedData[label] = value;

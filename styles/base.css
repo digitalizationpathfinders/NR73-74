@@ -487,6 +487,9 @@ padding:8px;
 
 .sub-label {
   font-weight:normal;
+  margin-top:0px;
+  margin-left:16px;
+  overflow-wrap:break-word;
   font-size:16px !important;
 }
 input[type="text"],
@@ -1222,6 +1225,9 @@ label span, legend span {
  }
  .warning {
   border-left-color: var(--warning);
+ }
+ .error {
+  border-left-color: var(--error);
  }
 
  .info span {
