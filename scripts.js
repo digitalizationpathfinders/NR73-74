@@ -661,16 +661,21 @@ class TableObj {
 class DatepickerObj {
     constructor(inputId) {
         this.input = document.getElementById(inputId);
-        this.wrapper = this.input.closest(".input-wrapper");
+        this.wrapper = this.input.closest(".input-wrapper") || this.input.closest("fieldset") || this.input.parentElement;
         this.icon = this.wrapper.querySelector(".suffix");
         this.modal = this.wrapper.querySelector(".datepicker-modal");
 
-        // Open on icon click
-        this.icon.addEventListener("click", (e) => {
+        // Open on icon click or when the input itself is clicked
+        const openPicker = (e) => {
             e.stopPropagation();
             DatepickerObj.closeAll(); // Close other open ones
             this.open();
-        });
+        };
+
+        if (this.icon) {
+            this.icon.addEventListener("click", openPicker);
+        }
+        this.input.addEventListener("click", openPicker);
 
         // Close if clicking outside
         document.addEventListener("click", (e) => {
@@ -1254,6 +1259,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize ProgressiveDisclosure and pass the stepper instance
     new ProgressiveDisclosure(stepper);
+
+    // Initialize datepicker widgets for text fields with a datepicker modal
+    document.querySelectorAll('.datepicker-modal').forEach(modal => {
+        const wrapper = modal.closest('fieldset') || modal.parentElement;
+        const input = wrapper?.querySelector('input');
+        if (input && input.id) {
+            new DatepickerObj(input.id);
+        }
+    });
 
     // Load the last step from session storage
     const savedStepId = sessionStorage.getItem('currentStep');
