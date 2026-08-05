@@ -576,11 +576,11 @@
 										<fieldset id="yearsOutside-fieldset" class="hidden standard-input">
 											<legend class="required-label">How many years will you be outside Canada?</legend>
 											<div class="group">
-												<input type="radio" id="yearsOutside-less5y" name="yearsOutside" value="5 years or less" data-toggle="">
+												<input type="radio" id="yearsOutside-less5y" name="yearsOutside" value="Five years or less" data-toggle="">
 												<label for="yearsOutside-less5y"></label>
 											</div>
 											<div class="group">
-												<input type="radio" id="yearsOutside-more5y" name="yearsOutside" value="More than 5 years" data-toggle="">
+												<input type="radio" id="yearsOutside-more5y" name="yearsOutside" value="More than five years" data-toggle="">
 												<label for="yearsOutside-more5y"></label>
 											</div>
 										</fieldset>
@@ -627,7 +627,7 @@
 									<label for="familyties-canada-spouse"></label>
 								</div>
 								<div class="group">
-									<input type="checkbox" id="familyties-canada-children" name="familyties-canada" value="I have child(ren) or dependent(s) in Canada" data-toggle="housingties-canada-section">
+									<input type="checkbox" id="familyties-canada-children" name="familyties-canada" value="I have children or dependents in Canada" data-toggle="housingties-canada-section">
 									<label for="familyties-canada-children"></label>
 								</div>
 								<div class="group">
@@ -784,7 +784,7 @@
 									<label for="familyties-anothercountry-spouse"></label>
 								</div>
 								<div class="group">
-									<input type="checkbox" id="familyties-anothercountry-children" name="familyties-anothercountry" value="I have child(ren) or dependent(s) in another country" data-toggle="housingties-anothercountry-section">
+									<input type="checkbox" id="familyties-anothercountry-children" name="familyties-anothercountry" value="I have children or dependents in another country" data-toggle="housingties-anothercountry-section">
 									<label for="familyties-anothercountry-children"></label>
 								</div>
 								<div class="group">
@@ -949,14 +949,13 @@
 				<div class="step-content">
 					<div class="container">
 						<form id="step-5-form">
-							<div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
 							<div id="entering-result-section" class="hidden">
 								
 								<div id="res-entering" class="hidden">
 	
 									<div class="alert success"><span class="material-icons">check_circle</span>
 										<div class="alert-content">
-											<h3>Resident of Canada as of immigration date(<span id="result-immigration-date"></span>)</h3>
+											<h3>Resident of Canada as of immigration date (<span id="immigration-date"></span>)</h3>
 											This status was determined because you established significant residential ties with Canada. 
 											<br><br>
 											Note: Do not mail or submit this form to the CRA, unless specifically asked.
@@ -987,9 +986,11 @@
 			
 									</div>
 									<h5>Additional information</h5>
-									<!-- Newcomers to Canada and the CRA
-									T1 income tax package
-									Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status -->
+									<ul>
+										<li><a href="#">Newcomers to Canada and the CRA</a></li>
+										<li><a href="#">T1 income tax package</a></li>
+										<li><a href="#">Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status</a></li>
+									</ul>
 
 								</div>
 								<div id="deemeedres-entering" class="hidden">
@@ -1030,10 +1031,11 @@
 				
 									</div>
 									<h5>Additional information</h5>
-									<!-- Income Tax Package for Non-Residents and Deemed Residents of Canada
-									Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status
-									Seasonal Agricultural Workers Program -->
-									
+									<ul>
+										<li><a href="#">Income Tax Package for Non-Residents and Deemed Residents of Canada</a></li>
+										<li><a href="#">Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status</a></li>
+										<li><a href="#">Seasonal Agricultural Workers Program</a></li>
+									</ul>
 								</div>
 								<div id="nonres-entering" class="hidden">
 	
@@ -1086,16 +1088,18 @@
 									If you need to change an assessed income tax and benefit return to reflect this residency status, go to <a href="#">Changing a tax return.</a>		
 									</div>
 									<h5>Additional information</h5>
-									<!-- Guide T4058, Non-Residents and Income Tax
-									Tax treaties
-									Income Tax Package for Non-Residents and Deemed Residents of Canada
-									T1 income tax package
-									Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status
-									Guide T4144, Income Tax Guide for Electing under Section 216
+									<ul>
+										<li><a href="#">Guide T4058, Non-Residents and Income Tax</a></li>
+										<li><a href="#">Tax treaties</a></li>
+										<li><a href="#">Income Tax Package for Non-Residents and Deemed Residents of Canada</a></li>
+										<li><a href="#">T1 income tax package</a></li>
+										<li><a href="#">Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status</a></li>
+										<li><a href="#">Guide T4144, Income Tax Guide for Electing under Section 216</a></li>
+									</ul>
 									Guide T4145, Electing under Section 217 of the Income Tax Act
 									Guide T4155, Old Age Security Return of Income (OASRI) Guide for Non-Residents
 									Information Circular IC72-17, Procedures Concerning the Disposition of Taxable 
-									Canadian Property by Non-Residents of Canada - Section 116 -->
+									Canadian Property by Non-Residents of Canada - Section 116
 
 								</div>
 								<div id="deemeednonres-entering" class="hidden">
@@ -1166,7 +1170,7 @@
 	
 									<div class="alert success"><span class="material-icons">check_circle</span>
 										<div class="alert-content">
-											<h3>Non-resident of Canada as of (<span id="emmigrationd-date"></span>)</h3>
+											<h3>Non-resident of Canada as of (<span id="emmigration-date"></span>)</h3>
 											This status was determined because you have not maintained significant residential ties with Canada.<br><br>
 											Note: Do not mail or submit this form to the CRA, unless specifically asked.
 										</div>
@@ -1204,11 +1208,14 @@
 										 
 										
 									For more information on your tax obligations, go to
-										Non-residents of Canada
-										Guide T4002, Self-employed Business, Professional, Commission, Farming, and Fishing Income
-										Disposing of or acquiring certain Canadian property
+									<ul>
+										<li><a href="#">Non-residents of Canada</a></li>
+										<li><a href="#">Guide T4002, Self-employed Business, Professional, Commission, Farming, and Fishing Income</a></li>
+										<li><a href="#">Disposing of or acquiring certain Canadian property</a></li>
+									</ul>
+									<br><br>
 									
-									If you need to change an assessed income tax and benefit return to reflect this residency status, go to Options to make your changes				
+									If you need to change an assessed income tax and benefit return to reflect this residency status, go to <a href="#">Options to make your changes</a>				
 									</div>
 								</div>
 								<div id="factualres-leaving" class="hidden">
@@ -1302,8 +1309,25 @@
 									</ol>
 									<button type="button" class="accordion">Your tax obligations</button>
 									<div class="accordion-content">
-									<br>TBD				
+									<br>
+									As a deemed resident of Canada, you are subject to tax in Canada on your world income (income from all sources, both inside and outside Canada). For the tax year, you:<br>
+									<ul>
+										<li>must report your world income for the entire tax year</li>
+										<li>can claim all deductions and non-refundable tax credits that apply to you</li>
+										<li>are subject to federal tax and instead of paying provincial or territorial tax, you pay a federal surtax</li>
+										<li>can claim all federal tax credits, but you cannot claim provincial or territorial tax credits</li>
+										<li>are eligible to apply for the goods and services tax/harmonized sales tax (GST/HST) credit</li>
+										<br><br>
+										For more information on your tax obligations, go to <a href="#">Deemed residents of Canada</a>
+										<br><br>
+										If you need to change an assessed income tax and benefit return to reflect your residency status, go to <a href="#">Changing a tax return.</a>
 									</div>
+									<h5>Additional information</h5>
+									<ul>
+										<li><a href="#">Income Tax Package for Non-Residents and Deemed Residents of Canada</a></li>
+										<li><a href="#">Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status</a></li>
+										<li><a href="#">Government employees outside Canada</a></li>
+										<li><a href="#">Factual residents - Temporarily outside of Canada</a></li>
 								</div>
 							</div>
 						

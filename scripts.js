@@ -239,7 +239,7 @@ class Step2Handler {
 }
 class Step3Handler {
     constructor() {
-        this.dwellingText = document.getElementById("availableDwelling-anothercountry-lightbox");
+        this.dwellingText = document.getElementById("dwelling-anothercountry-helptext");
 
 
         if(residencyFlow == 0){
@@ -329,15 +329,30 @@ class Step4Handler {
     formatDate(value) {
         if (!value)
             return "N/A";
-        const date = new Date(value);
 
-        if (isNaN(date))
+        const localDate = this.parseLocalDate(value);
+        if (!localDate || isNaN(localDate))
             return value;
-        return date.toLocaleDateString("en-US", {
+
+        return localDate.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric"
         });
+    }
+
+    parseLocalDate(value) {
+        if (!value) {
+            return null;
+        }
+
+        const isoMatch = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(value);
+        if (isoMatch) {
+            return new Date(Number(isoMatch[1]), Number(isoMatch[2]) - 1, Number(isoMatch[3]));
+        }
+
+        const date = new Date(value);
+        return isNaN(date) ? null : date;
     }
 
 
@@ -380,6 +395,12 @@ class Step5Handler {
         this.enteringCanadaResultSection = document.getElementById("entering-result-section");
         this.leavingCanadaResultSection = document.getElementById("leaving-result-section");
 
+        var emmigrationDate = DataManager.getData("stepData_1")?.leftCanadaDate;
+        var immigrationDate = DataManager.getData("stepData_1")?.enteredCanadaDate;
+        this.immigrationDateSpan = document.getElementById("immigration-date");
+        this.emmigrationDateSpan = document.getElementById("emmigration-date");
+        console.log("emmigrationDate", emmigrationDate);   
+        console.log("immigrationDate", immigrationDate);
       
        
 
@@ -390,17 +411,29 @@ class Step5Handler {
             this.nonres = document.getElementById("nonres-entering");
             this.deemedRes= document.getElementById("deemeedres-entering");
             this.deemedNonRes = document.getElementById("deemeednonres-entering");
-            this.factualRes = document.getElementById("factualres-entering");
-
+            this.factualRes = document.getElementById("factualres-leaving");
+            
+            if(this.immigrationDateSpan) {
+                const parsed = this.parseLocalDate(immigrationDate);
+                this.immigrationDateSpan.textContent = immigrationDate && parsed ? parsed.toLocaleDateString("en-US", {}) : "N/A";
+            }
+            
 
         }
         else {
             this.leavingCanadaResultSection.classList.remove("hidden");
             this.enteringCanadaResultSection.classList.add("hidden");
+            this.res = document.getElementById("res-entering");
             this.nonres = document.getElementById("nonres-leaving");
             this.deemedRes = document.getElementById("deemeedres-leaving");
             this.deemedNonRes = document.getElementById("deemeednonres-leaving");
-            this.factualRes = document.getElementById("factualres-entering");
+            this.factualRes = document.getElementById("factualres-leaving");
+            
+            if(this.emmigrationDateSpan) {
+                const parsed = this.parseLocalDate(emmigrationDate);
+                this.emmigrationDateSpan.textContent = emmigrationDate && parsed ? parsed.toLocaleDateString("en-US", {}) : "N/A";
+            }
+
         }
 
         var storedResult = DataManager.getData("result");
@@ -430,6 +463,12 @@ class Step5Handler {
                 this.deemedNonRes.classList.add("hidden");
                 this.factualRes.classList.remove("hidden");
                 break;
+            case "res":
+                this.nonres.classList.add("hidden");
+                this.deemedRes.classList.add("hidden");
+                this.deemedNonRes.classList.add("hidden");
+                this.factualRes.classList.add("hidden");
+                this.res.classList.remove("hidden");
 
         }
 
@@ -1189,19 +1228,19 @@ class ProgressiveDisclosure {
                     const options = input.childNodes;
 
                     options.forEach(option => {
-                        if (option.selected) {
-                            if (option.value != null) {
-                                targetElement.classList.remove('hidden');
-                            }
+                        if (option.selected && option.value != null) {
+                            targetElement.classList.remove('hidden');
                         }
                     });
-                }
-                if (input.type === "date") {
+                } else if (input.type === "date") {
                     targetElement.classList.remove("hidden");
-
-                }
-
-                if (input.checked) {
+                } else if (input.type === "checkbox") {
+                    if (input.checked) {
+                        targetElement.classList.remove('hidden');
+                    } else if (!this.isAnyCheckboxInGroupCheckedForTarget(input, targetId)) {
+                        this.hideWithSubfields(targetElement);
+                    }
+                } else if (input.checked) {
                     targetElement.classList.remove('hidden');
                 }
             });
@@ -1216,6 +1255,10 @@ class ProgressiveDisclosure {
 
 
     hideOtherTargets(input) {
+        if (input.type === 'checkbox') {
+            return;
+        }
+
         const groupName = input.name;
 
         if (groupName) {
@@ -1248,6 +1291,25 @@ class ProgressiveDisclosure {
                 }
             }
         }
+    }
+
+    isAnyCheckboxInGroupCheckedForTarget(input, targetId) {
+        const groupName = input.name;
+        if (!groupName) {
+            return false;
+        }
+
+        const groupCheckboxes = document.querySelectorAll(`input[name="${groupName}"][type="checkbox"]`);
+        return Array.from(groupCheckboxes).some(box => {
+            if (!box.checked) {
+                return false;
+            }
+            const boxTargets = box.getAttribute('data-toggle');
+            if (!boxTargets) {
+                return false;
+            }
+            return boxTargets.split(',').map(id => id.trim()).includes(targetId);
+        });
     }
 
 
