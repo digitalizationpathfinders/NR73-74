@@ -223,16 +223,15 @@ class Step1Handler {
 class Step2Handler {
     constructor() {
        
-          this.dwellingLB = document.getElementById("availableDwelling-canada-lightbox");
-          this.dwellingAvailableLightbox = new FormLightbox(document.getElementById("availableDwelling-canada-lightbox"));
+          this.dwellingText = document.getElementById("dwelling-canada-helptext");
 
           if(residencyFlow == 0){
-            this.dwellingLB.querySelector("#entering").classList.remove("hidden");
-            this.dwellingLB.querySelector("#leaving").classList.add("hidden");
+            this.dwellingText.querySelector("#entering").classList.remove("hidden");
+            this.dwellingText.querySelector("#leaving").classList.add("hidden");
           }
           else{
-            this.dwellingLB.querySelector("#leaving").classList.remove("hidden");
-            this.dwellingLB.querySelector("#entering").classList.add("hidden");
+            this.dwellingText.querySelector("#leaving").classList.remove("hidden");
+            this.dwellingText.querySelector("#entering").classList.add("hidden");
           }
     }
    
@@ -240,17 +239,16 @@ class Step2Handler {
 }
 class Step3Handler {
     constructor() {
-        this.dwellingLB = document.getElementById("availableDwelling-anothercountry-lightbox");
+        this.dwellingText = document.getElementById("availableDwelling-anothercountry-lightbox");
 
-        this.dwellingAvailableLightbox = new FormLightbox(document.getElementById("availableDwelling-anothercountry-lightbox"));
 
         if(residencyFlow == 0){
-            this.dwellingLB.querySelector("#entering").classList.remove("hidden");
-            this.dwellingLB.querySelector("#leaving").classList.add("hidden");
+            this.dwellingText.querySelector("#entering").classList.remove("hidden");
+            this.dwellingText.querySelector("#leaving").classList.add("hidden");
           }
         else{
-            this.dwellingLB.querySelector("#leaving").classList.remove("hidden");
-            this.dwellingLB.querySelector("#entering").classList.add("hidden");
+            this.dwellingText.querySelector("#leaving").classList.remove("hidden");
+            this.dwellingText.querySelector("#entering").classList.add("hidden");
           }
 
     }
@@ -388,10 +386,12 @@ class Step5Handler {
         if(residencyFlow == 0){ 
             this.enteringCanadaResultSection.classList.remove("hidden");
             this.leavingCanadaResultSection.classList.add("hidden");
+            this.res = document.getElementById("res-entering");
             this.nonres = document.getElementById("nonres-entering");
             this.deemedRes= document.getElementById("deemeedres-entering");
             this.deemedNonRes = document.getElementById("deemeednonres-entering");
             this.factualRes = document.getElementById("factualres-entering");
+
 
         }
         else {
@@ -400,7 +400,7 @@ class Step5Handler {
             this.nonres = document.getElementById("nonres-leaving");
             this.deemedRes = document.getElementById("deemeedres-leaving");
             this.deemedNonRes = document.getElementById("deemeednonres-leaving");
-            this.factualRes = document.getElementById("factualres-leaving");
+            this.factualRes = document.getElementById("factualres-entering");
         }
 
         var storedResult = DataManager.getData("result");
@@ -1134,6 +1134,13 @@ class ProgressiveDisclosure {
         this.stepper = stepperInstance;
         this.initializeEventListeners();
         this.outConditions = [
+            ["resOfPerson-nonresident"],
+            ["resOfPerson-tbd"],
+            ["resOfPerson-idk"],
+            ["previousCanadianResident-no"],
+            ["employment-forempl"],
+            ["employment-spouseforempl"],
+            ["employment-depforempl"]
             //step 1 selections that result in an "out"
             // ["s0q1-op2"],
             // ["s1q2-op1"],

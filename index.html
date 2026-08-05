@@ -21,17 +21,16 @@
 	<div class="page-container">
 		<h1>Determination of residency status</h1>
 		<main class="stepper">
-			<section class="step" id="step-0">
+			<section class="step active" id="step-0">
 				<div class="step-header">
 					<div class="step-number"> <span class="step-icon material-icons">check</span> </div>
 					<h2>Before you begin</h2> </div>
 				<div class="step-content">
 					<div class="container">
 						<p>If you have entered or left Canada, this tool can help you determine your residency status for Canadian income tax purposes, which affects your income tax obligations and filing requirements in Canada.</p>
-						<p> <strong>Note:</strong> Your residency status is determined based on the information you provide and may change if your situation cahnges. If you plan to enter or leave Canada in the future, use this tool at that time to help determine your residency status. </p>
-						<div class="alert info" id="alert-byb"> <span class="material-icons">info</span>
-							<div class="alert-content"> The residency determination is based on the information you provide. If your situation changes, your residency status may change too. Answer all questions that apply to your situation. </div>
-						</div>
+						<p> <strong>Note:</strong> Your residency status is determined based on the information you provide and may change if your situation changes. If you plan to enter or leave Canada in the future, use this tool at that time to help determine your residency status.</p>
+						
+					
 						<button type="button" class="accordion">What you will need </button>
 						<div class="accordion-content">
 							<br> You will need the following information about:
@@ -49,7 +48,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="step active" id="step-1">
+			<section class="step" id="step-1">
 				<div class="step-header">
 					<div class="step-number"> <span class="step-icon material-icons">check</span> </div>
 					<h2>General information</h2> </div>
@@ -103,22 +102,34 @@
 									<hr>
 									<h5>Usual residency</h5>
 									<fieldset id="dailyEntry-entered-fieldset" class="standard-input" data-radio-group>
-										<legend class="required-label">Select the option that best describes your residency situation
-											<a href="#" data-toggleLB="dailytravel-lightbox"> <span class="material-icons">help</span> </a>
+										<legend class="required-label">Do you usually live in another country but enter and leave Canada on the same day to work, study or similar?
+	
 										</legend>
 										</legend>
 										<div class="group">
-											<input type="radio" id="dailyEntry-entered-1" name="usualResidencyStatus" value="I usually live in another country but I enter and leave Canada on the same day to work, study or similar" data-toggle="otherCountryResidency-entered-fieldset">
-											<label for="dailyEntry-entered-1"></label>
+											<input type="radio" id="dailyEntry-entered-yes" name="dailyEntry-entered" value="Yes" data-toggle="dailyLeave-entered-fieldset">
+											<label for="dailyEntry-entered-yes"></label>
 										</div>
 										<div class="group">
-											<input type="radio" id="dailyEntry-entered-2" name="usualResidencyStatus" value="I usually live in Canada but I leave Canada during the day to work, study or similar in another country and return to Canada on the same day" data-toggle="otherCountryResidency-entered-fieldset">
-											<label for="dailyEntry-entered-2"></label>
+											<input type="radio" id="dailyEntry-entered-no" name="dailyEntry-entered" value="No" data-toggle="dailyLeave-entered-fieldset">
+											<label for="dailyEntry-entered-no"></label>
+										</div>
+										
+									</fieldset>
+									<fieldset id="dailyLeave-entered-fieldset" class="hidden standard-input" data-radio-group>
+										<legend class="required-label">Do you usually live in Canada but leave and re-enter Canada on the same day to work, study or similar?
+	
+										</legend>
+										</legend>
+										<div class="group">
+											<input type="radio" id="dailyLeave-entered-yes" name="dailyLeave-entered" value="Yes" data-toggle="otherCountryResidency-entered-fieldset">
+											<label for="dailyLeave-entered-yes"></label>
 										</div>
 										<div class="group">
-											<input type="radio" id="dailyEntry-entered-none" name="usualResidencyStatus" value="None of the above" data-toggle="otherCountryResidency-entered-fieldset">
-											<label for="dailyEntry-entered-none"></label>
+											<input type="radio" id="dailyLeave-entered-no" name="dailyLeave-entered" value="No" data-toggle="otherCountryResidency-entered-fieldset">
+											<label for="dailyLeave-entered-no"></label>
 										</div>
+										
 									</fieldset>
 									<fieldset id="otherCountryResidency-entered-fieldset" class="hidden standard-input" data-radio-group>
 										<legend class="required-label">Are you considered a resident of another country?</legend>
@@ -193,7 +204,7 @@
 											<label for="employment-spouseforempl"></label>
 										</div>
 										<div class="group">
-											<input type="radio" id="employment-depforempl" name="employmentForeign" value="I am the dependent (ie. achild) ofa foreign goverment employee posted in Canada" data-toggle="alert-foreignemployment">
+											<input type="radio" id="employment-depforempl" name="employmentForeign" value="I am the dependent (ie. a child) of a foreign goverment employee posted in Canada" data-toggle="alert-foreignemployment">
 											<label for="employment-depforempl"></label>
 										</div>
 										<div class="group">
@@ -202,7 +213,9 @@
 										</div>
 									</fieldset>
 									<div class="alert error hidden" id="alert-foreignemployment"> <span class="material-icons">error</span>
-										<div class="alert-content">TBD.</div>
+										<div class="alert-content">You indicated that you are a foreign government employee, or another individual described above. Based on your response, you are not required to complete this webform. 
+										<br>
+										For more information on your  residency status and tax obligations, go to <a href="#">Tax information for individuals working at foreign embassies in Canada</a></div>
 									</div>
 								</div>
 							</div>
@@ -249,23 +262,35 @@
 								<div id="usualResidency-left-section" class="hidden">
 									<hr>
 									<h5>Usual residency</h5>
-									<fieldset id="dailyEntry-left-fieldset" class="standard-input" data-radio-group>
-										<legend class="required-label">Select the option that best describes your residency situation
-											<a href="#" data-toggleLB="dailytravel-lightbox"> <span class="material-icons">help</span> </a>
+									<fieldset id="dailyEntry-entered-fieldset" class="standard-input" data-radio-group>
+										<legend class="required-label">Do you usually live in another country but enter and leave Canada on the same day to work, study or similar?
+	
 										</legend>
 										</legend>
 										<div class="group">
-											<input type="radio" id="dailyEntry-left-1" name="usualResidencyStatus" value="I usually live in another country but I enter and leave Canada on the same day to work, study or similar" data-toggle="otherCountryResidency-left-fieldset">
-											<label for="dailyEntry-left-1"></label>
+											<input type="radio" id="dailyEntry-left-yes" name="dailyEntry-left" value="Yes" data-toggle="dailyLeave-left-fieldset">
+											<label for="dailyEntry-left-yes"></label>
 										</div>
 										<div class="group">
-											<input type="radio" id="dailyEntry-left-2" name="usualResidencyStatus" value="I usually live in Canada but I leave Canada during the day to work, study or similar in another country and return to Canada on the same day" data-toggle="otherCountryResidency-left-fieldset">
-											<label for="dailyEntry-left-2"></label>
+											<input type="radio" id="dailyEntry-left-no" name="dailyEntry-left" value="No" data-toggle="dailyLeave-left-fieldset">
+											<label for="dailyEntry-left-no"></label>
+										</div>
+										
+									</fieldset>
+									<fieldset id="dailyLeave-left-fieldset" class="hidden standard-input" data-radio-group>
+										<legend class="required-label">Do you usually live in Canada but leave and re-enter Canada on the same day to work, study or similar?
+	
+										</legend>
+										</legend>
+										<div class="group">
+											<input type="radio" id="dailyLeave-left-yes" name="dailyLeave-left" value="Yes" data-toggle="otherCountryResidency-left-fieldset">
+											<label for="dailyLeave-left-yes"></label>
 										</div>
 										<div class="group">
-											<input type="radio" id="dailyEntry-left-none" name="usualResidencyStatus" value="None of the above" data-toggle="otherCountryResidency-fieldset">
-											<label for="dailyEntry-left-none"></label>
+											<input type="radio" id="dailyLeave-left-no" name="dailyLeave-left" value="No" data-toggle="otherCountryResidency-left-fieldset">
+											<label for="dailyLeave-left-no"></label>
 										</div>
+										
 									</fieldset>
 									<fieldset id="otherCountryResidency-left-fieldset" class="hidden standard-input" data-radio-group>
 										<legend class="required-label">Are you considered a resident of another country?</legend>
@@ -624,11 +649,11 @@
 										<label for="housingties-canada-possessions"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="housingties-canada-vehicles" name="housingties-canada" value="I own vehicle(s) that are registered in Canada" data-toggle="identificationties-canada-section">
+										<input type="checkbox" id="housingties-canada-vehicles" name="housingties-canada" value="I own vehicles that are registered in Canada" data-toggle="identificationties-canada-section">
 										<label for="housingties-canada-vehicles"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="housingties-canada-seasonal" name="housingties-canada" value="I have a seasonal residence in Canada (for example, a cottage or chalet)" data-toggle="identificationties-canada-section">
+										<input type="checkbox" id="housingties-canada-seasonal" name="housingties-canada" value="I own a seasonal residence in Canada (for example, a cottage or chalet)" data-toggle="identificationties-canada-section">
 										<label for="housingties-canada-seasonal"></label>
 									</div>
 									<div class="group">
@@ -638,8 +663,25 @@
 								</fieldset>
 								<fieldset id="dwellingAvailable-canada-fieldset" class="hidden standard-input">
 									<legend class="required-label">Is your dwelling available for your occupancy?
-										<a href="#" data-toggleLB="availableDwelling-canada-lightbox"> <span class="material-icons">help</span></a>
+										
 									</legend>
+									<span class="sub-label" id="dwelling-canada-helptext">
+									This dwelling will be considered available to you if:
+									<div id="entering" class="hidden"> 
+										<ul>
+											<li>you or your spouse/common-law partner own or rent your dwelling</li>
+											<li>your employer will provide the dwelling for you</li>
+										</ul>
+									</div>
+									<div id="leaving" class="hidden">
+										<ul>
+											<li>you or your spouse/common-law partner own or rent your dwelling</li>
+											<li>your dwelling is kept vacant or available for personal use</li>
+											<li>your dwelling is rented to a person on non-arm's length terms (for example, under fair market value, or without a written lease)</li>
+											<li>someone you know will be living in your home (no rent is charged)</li>
+										</ul>
+									</div>
+									</span>
 									<div class="group">
 										<input type="radio" id="dwellingAvailable-canada-yes" name="dwellingAvailable" value="Yes" data-toggle="identificationties-canada-section">
 										<label for="dwellingAvailable-canada-yes"></label>
@@ -664,7 +706,7 @@
 										<label for="identificationties-canada-passport"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="identificationties-canada-job" name="identificationties-canada" value="I am employed by a Canadian employer, or a have a guaranteed job in Canada" data-toggle="insurancebankingties-canada-section">
+										<input type="checkbox" id="identificationties-canada-job" name="identificationties-canada" value="I am employed by a Canadian employer, or have a guaranteed job in Canada" data-toggle="insurancebankingties-canada-section">
 										<label for="identificationties-canada-job"></label>
 									</div>
 									<div class="group">
@@ -683,7 +725,7 @@
 							</div>
 							<div id="insurancebankingties-canada-section" class="hidden">
 								<hr>
-								<h5>Insurance and banking</h5>
+								<h5>Coverage and banking</h5>
 								<fieldset id="insurancebankingties-canada-fieldset" class="standard-input">
 									<legend class="required-label">Select all that apply</legend>
 									<div class="group">
@@ -691,7 +733,11 @@
 										<label for="insurancebankingties-canada-medcoverage"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="insurancebankingties-canada-socialmemberships" name="insurancebankingties-canada" value="I have memberships in Canadian social, recreational, or religious organizations" data-toggle="">
+										<input type="checkbox" id="insurancebankingties-canada-insurance" name="insurancebankingties-canada" value="I have coverage (such as life insurance, general insurance, or health insurance) through a Canadian insurance company" data-toggle="">
+										<label for="insurancebankingties-canada-insurance"></label>
+									</div>
+									<div class="group">
+										<input type="checkbox" id="insurancebankingties-canada-socialmemberships" name="insurancebankingties-canada" value="I have memberships in social, recreational, or religious organizations in Canada" data-toggle="">
 										<label for="insurancebankingties-canada-socialmemberships"></label>
 									</div>
 									<div class="group">
@@ -703,13 +749,10 @@
 										<label for="insurancebankingties-canada-finservices"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="insurancebankingties-canada-investments" name="insurancebankingties-canada" value="I have investments in Canada (such as RRSP, mutual funds, FHSA, and similar)" data-toggle="">
+										<input type="checkbox" id="insurancebankingties-canada-investments" name="insurancebankingties-canada" value="I have investments (such as mutual funds or other investment accounts) in another country" data-toggle="">
 										<label for="insurancebankingties-canada-investments"></label>
 									</div>
-									<div class="group">
-										<input type="checkbox" id="insurancebankingties-canada-insurance" name="insurancebankingties-canada" value="I have coverage (such as life insurance, general insurance, or health insurance) through a Canadian insurance company" data-toggle="">
-										<label for="insurancebankingties-canada-insurance"></label>
-									</div>
+									
 									<div class="group">
 										<input type="checkbox" id="insurancebankingties-canada-none" name="insurancebankingties-canada" value="None of the above" data-toggle="">
 										<label for="insurancebankingties-canada-none"></label>
@@ -721,34 +764,7 @@
 								<button class="btn btn-primary next-button" type="button">Next</button>
 							</div>
 						</form>
-						<div class="lightbox-container" id="availableDwelling-canada-lightbox">
-							<div class="lightbox">
-								<div class="header">
-									<h3>Is your dwelling available for your occupancy?</h3>
-									<button data-closebtn class="btn-tertiary" type="button"> <span class="material-icons">clear</span> </button>
-								</div>
-								<div class="lightbox-content">
-                  This dwelling will be considered available to you if:
-									<div id="entering" class="hidden"> 
-										<ul>
-											<li>you or your spouse/common-law partner own or rent your dwelling</li>
-											<li>your employer will provide the dwelling for you</li>
-										</ul>
-									</div>
-									<div id="leaving" class="hidden">
-										<ul>
-											<li>you or your spouse/common-law partner own or rent your dwelling</li>
-											<li>your dwelling is kept vacant or available for personal use</li>
-											<li>your dwelling is rented to a person on non-arm's length terms (for example, under fair market value, or without a written lease)</li>
-											<li>someone you know will be living in your home (no rent is charged)</li>
-										</ul>
-									</div>
-								</div>
-								<div class="buttons">
-									<button class="btn-primary" data-closebtn type="button">Done</button>
-								</div>
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</section>
@@ -790,11 +806,11 @@
 										<label for="housingties-anothercountry-possessions"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="housingties-anothercountry-vehicles" name="housingties-anothercountry" value="I own vehicle(s) that are registered in another country" data-toggle="identificationties-anothercountry-section">
+										<input type="checkbox" id="housingties-anothercountry-vehicles" name="housingties-anothercountry" value="I own vehicles that are registered in another country" data-toggle="identificationties-anothercountry-section">
 										<label for="housingties-anothercountry-vehicles"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="housingties-anothercountry-seasonal" name="housingties-anothercountry" value="I have a seasonal residence in another country (for example, a cottage or chalet)" data-toggle="identificationties-anothercountry-section">
+										<input type="checkbox" id="housingties-anothercountry-seasonal" name="housingties-anothercountry" value="I own a seasonal residence in another country (for example, a cottage or chalet)" data-toggle="identificationties-anothercountry-section">
 										<label for="housingties-anothercountry-seasonal"></label>
 									</div>
 									<div class="group">
@@ -804,8 +820,25 @@
 								</fieldset>
 								<fieldset id="dwellingAvailable-anothercountry-fieldset" class="hidden standard-input">
 									<legend class="required-label">Is your dwelling available for your occupancy?
-										<a href="#" data-toggleLB="availableDwelling-anothercountry-lightbox"> <span class="material-icons">help</span></a>
+										
 									</legend>
+									<span class="sub-label" id="dwelling-anothercountry-helptext">
+									This dwelling will be considered available to you if:
+									<div id="entering" class="hidden"> 
+										<ul>
+											<li>you or your spouse/common-law partner own or rent your dwelling</li>
+											<li>your employer will provide the dwelling for you</li>
+										</ul>
+									</div>
+									<div id="leaving" class="hidden">
+										<ul>
+											<li>you or your spouse/common-law partner own or rent your dwelling</li>
+											<li>your dwelling is kept vacant or available for personal use</li>
+											<li>your dwelling is rented to a person on non-arm's length terms (for example, under fair market value, or without a written lease)</li>
+											<li>someone you know will be living in your home (no rent is charged)</li>
+										</ul>
+									</div>
+									</span>
 									<div class="group">
 										<input type="radio" id="dwellingAvailable-anothercountry-yes" name="dwellingAvailable" value="Yes" data-toggle="identificationties-anothercountry-section">
 										<label for="dwellingAvailable-anothercountry-yes"></label>
@@ -849,12 +882,16 @@
 							</div>
 							<div id="insurancebankingties-anothercountry-section" class="hidden">
 								<hr>
-								<h5>Insurance and banking</h5>
+								<h5>Coverage and banking</h5>
 								<fieldset id="insurancebankingties-anothercountry-fieldset" class="standard-input">
 									<legend class="required-label">Select all that apply</legend>
 									<div class="group">
 										<input type="checkbox" id="insurancebankingties-anothercountry-medcoverage" name="insurancebankingties-anothercountry" value="I have or have applied for medical coverage in another country" data-toggle="">
 										<label for="insurancebankingties-anothercountry-medcoverage"></label>
+									</div>
+										<div class="group">
+										<input type="checkbox" id="insurancebankingties-anothercountry-insurance" name="insurancebankingties-anothercountry" value="I have coverage (such as life insurance, general insurance, or health insurance) through another country's insurance company" data-toggle="">
+										<label for="insurancebankingties-anothercountry-insurance"></label>
 									</div>
 									<div class="group">
 										<input type="checkbox" id="insurancebankingties-anothercountry-socialmemberships" name="insurancebankingties-anothercountry" value="I have memberships in social, recreational, or religious organizations in another country" data-toggle="">
@@ -869,13 +906,10 @@
 										<label for="insurancebankingties-anothercountry-finservices"></label>
 									</div>
 									<div class="group">
-										<input type="checkbox" id="insurancebankingties-anothercountry-investments" name="insurancebankingties-anothercountry" value="I have investments in another country (such as RRSP, mutual funds, FHSA, and similar)" data-toggle="">
+										<input type="checkbox" id="insurancebankingties-anothercountry-investments" name="insurancebankingties-anothercountry" value="I have investments (such as mutual funds or other investment accounts) in another country" data-toggle="">
 										<label for="insurancebankingties-anothercountry-investments"></label>
 									</div>
-									<div class="group">
-										<input type="checkbox" id="insurancebankingties-anothercountry-insurance" name="insurancebankingties-anothercountry" value="I have coverage (such as life insurance, general insurance, or health insurance) through another country's insurance company" data-toggle="">
-										<label for="insurancebankingties-anothercountry-insurance"></label>
-									</div>
+								
 									<div class="group">
 										<input type="checkbox" id="insurancebankingties-anothercountry-none" name="insurancebankingties-anothercountry" value="None of the above" data-toggle="">
 										<label for="insurancebankingties-anothercountry-none"></label>
@@ -887,34 +921,6 @@
 								<button class="btn btn-primary next-button" type="button">Next</button>
 							</div>
 						</form>
-            		<div class="lightbox-container" id="availableDwelling-anothercountry-lightbox">
-							<div class="lightbox">
-								<div class="header">
-									<h3>Is your dwelling available for your occupancy?</h3>
-									<button data-closebtn class="btn-tertiary" type="button"> <span class="material-icons">clear</span> </button>
-								</div>
-								<div class="lightbox-content">
-                  This dwelling will be considered available to you if:
-									<div id="entering" class="hidden"> 
-										<ul>
-											<li>you or your spouse/common-law partner own or rent your dwelling</li>
-											<li>your employer will provide the dwelling for you</li>
-										</ul>
-									</div>
-									<div id="leaving" class="hidden">
-										<ul>
-											<li>you or your spouse/common-law partner own or rent your dwelling</li>
-											<li>your dwelling is kept vacant or available for personal use</li>
-											<li>your dwelling is rented to a person on non-arm's length terms (for example, under fair market value, or without a written lease)</li>
-											<li>someone you know will be living in your home (no rent is charged)</li>
-										</ul>
-									</div>
-								</div>
-								<div class="buttons">
-									<button class="btn-primary" data-closebtn type="button">Done</button>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</section>
@@ -945,100 +951,225 @@
 						<form id="step-5-form">
 							<div class="required">Fields marked with asterisk ( <span class="ast">*</span>) are required. </div>
 							<div id="entering-result-section" class="hidden">
-								<div id="nonres-entering" class="hidden">
+								
+								<div id="res-entering" class="hidden">
 	
 									<div class="alert success"><span class="material-icons">check_circle</span>
-										<div class="alert-content"> TEXT </div>
+										<div class="alert-content">
+											<h3>Resident of Canada as of immigration date(<span id="result-immigration-date"></span>)</h3>
+											This status was determined because you established significant residential ties with Canada. 
+											<br><br>
+											Note: Do not mail or submit this form to the CRA, unless specifically asked.
+										</div>
 									</div>
 									<h4>Next steps</h4>
 									<ol>
 										<li>Print or save this page for your records</li>
 										<li>Notify the Canada Revenue Agency of your residency status</li>
-										<li>File or adjust your return for the year you became a non-resident
+										<li>File or adjust your return for the year you became a resident:
 											<ul>
-												<li>If you have not yet prepared your return, file it using your non-resident date under the Resdence Information section of your <a href="#">Income Tax and Benefit Return</a></li>
-												<li>If you have already filed your return without your non-resident date, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
+												<li>If you have not yet prepared your return, file it using your date of entry under the Resdence Information section of your <a href="#">Income Tax and Benefit Return</a></li>
+												<li>If you have already filed your return without your immigration date, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
 											</ul>
 										</li>
 										<li>If necessary, notify any payers in Canada (such as banks, employer, pension payer, and similar) of your change of residence</li>
 									</ol>
 									<button type="button" class="accordion">Your tax obligations</button>
 									<div class="accordion-content">
-									<br>TBD				
+									<br>As a resident of Canada, you must report all the income you earn from anywhere in the world, starting from the date you became a resident. This includes income from both inside and outside Canada. 
+									<br><br>
+									For the period before you entered Canada and became a resident, you have to report your income from certain Canadian sources on a Canadian income tax return, including:
+									<ul>
+										<li>the taxable part of Canadian scholarships, bursaries, and net research grants</li>
+										<li>income from a business, an office, and employment in Canada</li>
+										<li>taxable capital gains from disposing of Canadian property</li>
+									</ul>
+			
 									</div>
-								</div>
-								<div id="factualres-entering" class="hidden">
-	
-									<div class="alert success"><span class="material-icons">check_circle</span>
-										<div class="alert-content"> TEXT </div>
-									</div>
-									<h4>Next steps</h4>
-									<ol>
-										<li>Print or save this page for your records</li>
-										<li>Notify the Canada Revenue Agency of your residency status</li>
-										<li>File or adjust your return for the year you became a non-resident
-											<ul>
-												<li>If you have not yet prepared your return, file it using your non-resident date under the Resdence Information section of your <a href="#">Income Tax and Benefit Return</a></li>
-												<li>If you have already filed your return without your non-resident date, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
-											</ul>
-										</li>
-										<li>If necessary, notify any payers in Canada (such as banks, employer, pension payer, and similar) of your change of residence</li>
-									</ol>
-									<button type="button" class="accordion">Your tax obligations</button>
-									<div class="accordion-content">
-									<br>TBD				
-									</div>
-								</div>
-								<div id="deemeednonres-entering" class="hidden">
-	
-									<div class="alert success"><span class="material-icons">check_circle</span>
-										<div class="alert-content"> TEXT </div>
-									</div>
-									<h4>Next steps</h4>
-									<ol>
-										<li>Print or save this page for your records</li>
-										<li>Notify the Canada Revenue Agency of your residency status</li>
-										<li>File or adjust your return for the year you became a non-resident
-											<ul>
-												<li>If you have not yet prepared your return, file it using your non-resident date under the Resdence Information section of your <a href="#">Income Tax and Benefit Return</a></li>
-												<li>If you have already filed your return without your non-resident date, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
-											</ul>
-										</li>
-										<li>If necessary, notify any payers in Canada (such as banks, employer, pension payer, and similar) of your change of residence</li>
-									</ol>
-									<button type="button" class="accordion">Your tax obligations</button>
-									<div class="accordion-content">
-									<br>TBD				
-									</div>
+									<h5>Additional information</h5>
+									<!-- Newcomers to Canada and the CRA
+									T1 income tax package
+									Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status -->
+
 								</div>
 								<div id="deemeedres-entering" class="hidden">
 	
 									<div class="alert success"><span class="material-icons">check_circle</span>
-										<div class="alert-content"> TEXT </div>
+										<div class="alert-content">
+											<h3>Deemed resident of Canada</h3>
+											This status was determined because you have not established significant residential ties with Canada. However, you were present in Canada for <a href="#">183 days or more</a> during the year. Your country of residence does not have a tax treaty with Canada. Therefore, you are a deemed resident for the entire tax year and until your situation changes.
+											<br><br>
+											Note: Do not mail or submit this form to the CRA, unless specifically asked.
+										</div>
 									</div>
 									<h4>Next steps</h4>
 									<ol>
 										<li>Print or save this page for your records</li>
 										<li>Notify the Canada Revenue Agency of your residency status</li>
-										<li>File or adjust your return for the year you became a non-resident
+										<li>Prepare your return
 											<ul>
-												<li>If you have not yet prepared your return, file it using your non-resident date under the Resdence Information section of your <a href="#">Income Tax and Benefit Return</a></li>
-												<li>If you have already filed your return without your non-resident date, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
+												<li>Make sure to indicate your residency status in the Information about your residency status section of the <a href="#">Income Tax and Benefit Return</a></li>
+												<li>If you already filed your return without this information, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
 											</ul>
 										</li>
 										<li>If necessary, notify any payers in Canada (such as banks, employer, pension payer, and similar) of your change of residence</li>
 									</ol>
 									<button type="button" class="accordion">Your tax obligations</button>
 									<div class="accordion-content">
-									<br>TBD				
+									<br>As a deemed resident of Canada, you are subject to tax in Canada on your world income (income from all sources, both inside and outside Canada). For the tax year, you:<br>
+									<ul>
+										<li>must report your world income for the entire tax year</li>
+										<li>can claim all deductions and non-refundable tax credits that apply to you</li>
+										<li>are subject to federal tax and instead of paying provincial or territorial tax, you pay a federal surtax</li>
+										<li>can claim all federal tax credits, but you cannot claim provincial or territorial tax credits</li>
+										<li>are eligible to apply for the goods and services tax/harmonized sales tax (GST/HST) credit</li>
+										<br><br>
+										For more information on your tax obligations, go to <a href="#">Deemed residents of Canada</a>
+										<br><br>
+										If you need to change an assessed income tax and benefit return to reflect your residency status, go to <a href="#">Changing a tax return.</a>
+				
 									</div>
+									<h5>Additional information</h5>
+									<!-- Income Tax Package for Non-Residents and Deemed Residents of Canada
+									Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status
+									Seasonal Agricultural Workers Program -->
+									
 								</div>
+								<div id="nonres-entering" class="hidden">
+	
+									<div class="alert success"><span class="material-icons">check_circle</span>
+										<div class="alert-content">
+											<h3>Non-resident of Canada</h3>
+											This status was determined because you have not established significant residential ties with Canada. 
+											<br><br>
+											Note: Do not mail or submit this form to the CRA, unless specifically asked.
+										</div>
+									</div>
+									<h4>Next steps</h4>
+									<ol>
+										<li>Print or save this page for your records</li>
+										<li>Notify the Canada Revenue Agency of your residency status</li>
+										<li>Prepare your return
+											<ul>
+												<li>Make sure to indicate your residency status in the Information about your residency status section of the <a href="#">Income Tax and Benefit Return</a></li>
+												<li>If you have already filed your return without this information, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
+											</ul>
+										</li>
+										<li>If necessary, notify any payers in Canada (such as banks, employer, pension payer, and similar) of your change of residence</li>
+									</ol>
+									<button type="button" class="accordion">Your tax obligations</button>
+									<div class="accordion-content">
+									<br>As a non-resident, you are subject to Canadian tax only on income you receive from Canadian sources.
+									<br><br>
+									Generally, a non-resident's Canadian-source income is subject to either Part XIII tax (such as interest, dividends, rent, and pensions) or Part I tax (such as employment income earned in Canada, business income from Canada, and gains from the sale of taxable Canadian property).
+									<br><br>
+									If you receive Canadian income that is subject to Part XIII tax:
+									<ul>
+										<li>Canadian payers (including financial institutions) must deduct Part XIII tax when income is paid or credited to you</li>
+										<li>The Part XIII tax deducted is your final tax obligation to Canada on this income (if the correct amount is deducted)</li>
+										<li>The usual Part XIII tax rate is 25% unless a tax treaty between Canada and your home country reduces this rate</li>
+										<li>Part XIII tax is not refundable by way of filing a Canadian tax return. </li>
+									</ul>
+									<br><br>
+									If you receive Canadian income that is subject to Part I tax:
+									<ul>
+										<li>The payer usually deducts Part I tax</li>
+										<li>Even if the payer deducts tax from your income or you pay an amount of tax during the year, you may also have to file a Canadian income tax return to calculate your final tax obligation to Canada.</li>
+									</ul>
+									<br><br>
+									For more information on your tax obligations, go to: 
+									<ul>
+										<li>Non-residents of Canada</li>
+										<li>Guide T4002, Self-employed Business, Professional, Commission, Farming, and Fishing Income</li>
+										<li>Disposing of or acquiring certain Canadian property</li>
+									<br><br>
+									If you need to change an assessed income tax and benefit return to reflect this residency status, go to <a href="#">Changing a tax return.</a>		
+									</div>
+									<h5>Additional information</h5>
+									<!-- Guide T4058, Non-Residents and Income Tax
+									Tax treaties
+									Income Tax Package for Non-Residents and Deemed Residents of Canada
+									T1 income tax package
+									Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status
+									Guide T4144, Income Tax Guide for Electing under Section 216
+									Guide T4145, Electing under Section 217 of the Income Tax Act
+									Guide T4155, Old Age Security Return of Income (OASRI) Guide for Non-Residents
+									Information Circular IC72-17, Procedures Concerning the Disposition of Taxable 
+									Canadian Property by Non-Residents of Canada - Section 116 -->
+
+								</div>
+								<div id="deemeednonres-entering" class="hidden">
+	
+									<div class="alert success"><span class="material-icons">check_circle</span>
+										<div class="alert-content">
+										<h3>Deemed non-resident of Canada</h3>
+											This status was determined because you have established significant residential ties with Canada. However, since you are considered a resident of another country under their tax agreement, you will be considered a deemed non-resident of Canada. 											<br><br>
+											Note: Do not mail or submit this form to the CRA, unless specifically asked.
+										</div>
+									</div>
+									<h4>Next steps</h4>
+									<ol>
+										<li>Print or save this page for your records</li>
+										<li>Notify the Canada Revenue Agency of your residency status</li>
+										<li>Prepare your return
+											<ul>
+												<li>Make sure to indicate your residency status in the Information about your residency status section of the <a href="#">Income Tax and Benefit Return</a></li>
+												<li>If you already filed your return without this information, adjust your tax return, go to <a href="#">Changing a tax return</a>.</li>
+											</ul>
+										</li>
+										<li>If necessary, notify any payers in Canada (such as banks, employer, pension payer, and similar) of your change of residence</li>
+									</ol>
+									<button type="button" class="accordion">Your tax obligations</button>
+									<div class="accordion-content">
+									<br>As a deemed non-resident, you are subject to tax in Canada the same way as a non-resident of Canada. 
+									<br><br>
+									As a non-resident, you are subject to Canadian tax only on income you receive from Canadian sources after that date. Before the date you became a non-resident of Canada, you are generally subject to Canadian tax on your worldwide income.
+									<br><br>
+									Generally, a non-resident's Canadian-source income is subject to either Part XIII tax (such as interest, dividends, rent, and pensions) or Part I tax (such as employment income earned in Canada, business income from Canada, and gains from the sale of taxable Canadian property).
+									<br><br>
+									If you receive Canadian income that is subject to Part XIII tax:
+									<ul>
+										<li>Canadian payers (including financial institutions) must deduct Part XIII tax when income is paid or credited to you</li>
+										<li>The Part XIII tax deducted is your final tax obligation to Canada on this income (if the correct amount is deducted)</li>
+										<li>The usual Part XIII tax rate is 25% unless a tax treaty between Canada and your home country reduces this rate</li>
+										<li>Part XIII tax is not refundable by way of filing a Canadian tax return.</li>
+									</ul>
+									<br><br>
+									If you receive Canadian income that is subject to Part I tax:
+									<ul>
+										<li>The payer usually deducts Part I tax</li>
+										<li>Even if the payer deducts tax from your income or you pay an amount of tax during the year, you may also have to file a Canadian income tax return to calculate your final tax obligation to Canada.</li>
+									</ul>
+									<br><br>
+									For more information on your tax obligations, go to:
+									<ul>
+									<li><a href="#">Non-residents of Canada</a></li>
+									<li><a href="#">Guide T4002, Self-employed Business, Professional, Commission, Farming, and Fishing Income</a></li>
+									<li><a href="#">Disposing of or acquiring certain Canadian property</a></li>
+									</ul>
+									<br><br>
+									If you need to change an assessed income tax and benefit return to reflect this residency status, go to <a href="#">Changing a tax return</a>.
+									</div>
+									<h5>Additional information</h5>
+									<ul>
+										<li><a href="#">Guide T4058, Non-Residents and Income Tax</a></li>
+										<li><a href="#">Income Tax Package for Non-Residents and Deemed Residents of Canada</a></li>
+										<li><a href="#">T1 income tax package</a></li>
+										<li<a href="#">Income Tax Folio S5-F1-C1, Determining an Individual's Residence Status</a></li>
+									</ul>
+
+								</div>
+								
 							</div>
 							<div id="leaving-result-section" class="hidden">
 								<div id="nonres-leaving" class="hidden">
 	
 									<div class="alert success"><span class="material-icons">check_circle</span>
-										<div class="alert-content"> TEXT </div>
+										<div class="alert-content">
+											<h3>Non-resident of Canada as of (<span id="emmigrationd-date"></span>)</h3>
+											This status was determined because you have not maintained significant residential ties with Canada.<br><br>
+											Note: Do not mail or submit this form to the CRA, unless specifically asked.
+										</div>
 									</div>
 									<h4>Next steps</h4>
 									<ol>
@@ -1054,13 +1185,39 @@
 									</ol>
 									<button type="button" class="accordion">Your tax obligations</button>
 									<div class="accordion-content">
-									<br>TBD				
+									<br>As a non-resident, you are subject to Canadian tax only on income you receive from sources in Canada after becoming a non-resident; before that date, you are generally subject to Canadian tax on your worldwide income.
+									<br><br>
+									Generally, a non-resident's Canadian-source income is subject to either Part XIII tax (such as interest, dividends, rent, and pensions) or Part I tax (such as employment income earned in Canada, business income from Canada, and gains from the sale of taxable Canadian property).
+									<br><br>If you receive Canadian income that is subject to Part XIII tax:
+									<ul>
+										<li>Canadian payers (including financial institutions) must deduct Part XIII tax when income is paid or credited to you</li>
+										<li>The Part XIII tax deducted is your final tax obligation to Canada on this income (if the correct amount is deducted)</li>
+										<li>The usual Part XIII tax rate is 25% unless a tax treaty between Canada and your home country reduces this rate </li>
+										<li>Part XIII tax is not refundable by way of filing a Canadian tax return.</li>
+									</ul>
+									<br><br>
+									If you receive Canadian income that is subject to Part I tax: 
+									<ul>
+										<li>The payer usually deducts Part I tax</li>
+										<li>Even if the payer deducts tax from your income or you pay an amount of tax during the year, you may also have to file a Canadian income tax return to calculate your final tax obligation to Canada.  </li>
+									</ul>
+										 
+										
+									For more information on your tax obligations, go to
+										Non-residents of Canada
+										Guide T4002, Self-employed Business, Professional, Commission, Farming, and Fishing Income
+										Disposing of or acquiring certain Canadian property
+									
+									If you need to change an assessed income tax and benefit return to reflect this residency status, go to Options to make your changes				
 									</div>
 								</div>
 								<div id="factualres-leaving" class="hidden">
 	
 									<div class="alert success"><span class="material-icons">check_circle</span>
-										<div class="alert-content"> TEXT </div>
+										<div class="alert-content">
+											<h3>Non-resident of Canada as of (<span id="emmigrationd-date"></span>)</h3>
+										This status was determined because you have not maintained significant residential ties with Canada.<br><br>
+										Note: Do not mail or submit this form to the CRA, unless specifically asked. </div>
 									</div>
 									<h4>Next steps</h4>
 									<ol>
@@ -1076,7 +1233,32 @@
 									</ol>
 									<button type="button" class="accordion">Your tax obligations</button>
 									<div class="accordion-content">
-									<br>TBD				
+									<br>As a non-resident, you are subject to Canadian tax only on income you receive from Canadian sources after that date. Before the date you became a non-resident of Canada, you are generally subject to Canadian tax on your worldwide income.
+									<br><br>
+									Generally, a non-resident's Canadian-source income is subject to either Part XIII tax (such as interest, dividends, rent, and pensions) or Part I tax (such as employment income earned in Canada, business income from Canada, and gains from the sale of taxable Canadian property).
+									<br><br>
+									If you receive Canadian income that is subject to Part XIII tax:
+									<ul>
+										<li>Canadian payers (including financial institutions) must deduct Part XIII tax when income is paid or credited to you</li>
+										<li>The Part XIII tax deducted is your final tax obligation to Canada on this income (if the correct amount is deducted)</li>
+										<li>The usual Part XIII tax rate is 25% unless a tax treaty between Canada and your home country reduces this rate</li>
+										<li>Part XIII tax is not refundable by way of filing a Canadian tax return.</li>
+									</ul>
+									<br><br>
+									If you receive Canadian income that is subject to Part I tax:
+									<ul>
+										<li>The payer usually deducts Part I tax</li>
+										<li>Even if the payer deducts tax from your income or you pay an amount of tax during the year, you may also have to file a Canadian income tax return to calculate your final tax obligation to Canada.</li>
+									</ul>
+									<br><br>
+									For more information on your tax obligations, go to:
+									<ul>
+									<li><a href="#">Non-residents of Canada</a></li>
+									<li><a href="#">Guide T4002, Self-employed Business, Professional, Commission, Farming, and Fishing Income</a></li>
+									<li><a href="#">Disposing of or acquiring certain Canadian property</a></li>
+									</ul>
+									<br><br>
+									If you need to change an assessed income tax and benefit return to reflect this residency status, go to <a href="#">Options to make your changes</a>.				
 									</div>
 								</div>
 								<div id="deemeednonres-leaving" class="hidden">
