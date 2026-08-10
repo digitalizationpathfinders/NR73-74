@@ -397,8 +397,8 @@ class Step5Handler {
 
         var emmigrationDate = DataManager.getData("stepData_1")?.leftCanadaDate;
         var immigrationDate = DataManager.getData("stepData_1")?.enteredCanadaDate;
-        this.immigrationDateSpan = document.getElementById("immigration-date");
-        this.emmigrationDateSpan = document.getElementById("emmigration-date");
+        this.immigrationDateSpans = document.querySelectorAll("#immigration-date");
+        this.emmigrationDateSpans = document.querySelectorAll("#emmigration-date");
         console.log("emmigrationDate", emmigrationDate);   
         console.log("immigrationDate", immigrationDate);
       
@@ -413,9 +413,12 @@ class Step5Handler {
             this.deemedNonRes = document.getElementById("deemeednonres-entering");
             this.factualRes = document.getElementById("factualres-leaving");
             
-            if(this.immigrationDateSpan) {
+            if(this.immigrationDateSpans.length) {
                 const parsed = this.parseLocalDate(immigrationDate);
-                this.immigrationDateSpan.textContent = immigrationDate && parsed ? parsed.toLocaleDateString("en-US", {}) : "N/A";
+
+                this.immigrationDateSpans.forEach(span => {
+                    span.textContent = immigrationDate;
+                });
             }
             
 
@@ -429,12 +432,17 @@ class Step5Handler {
             this.deemedNonRes = document.getElementById("deemeednonres-leaving");
             this.factualRes = document.getElementById("factualres-leaving");
             
-            if(this.emmigrationDateSpan) {
+            if(this.emmigrationDateSpans.length) {
                 const parsed = this.parseLocalDate(emmigrationDate);
-                this.emmigrationDateSpan.textContent = emmigrationDate && parsed ? parsed.toLocaleDateString("en-US", {}) : "N/A";
+
+                this.emmigrationDateSpans.forEach(span => {
+                    span.textContent = emmigrationDate;
+                });
             }
 
         }
+
+        
 
         var storedResult = DataManager.getData("result");
 
@@ -472,9 +480,25 @@ class Step5Handler {
 
         }
 
+        
+
           
 
     }
+    parseLocalDate(value) {
+        if (!value) {
+            return null;
+        }
+
+        const isoMatch = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(value);
+        if (isoMatch) {
+            return new Date(Number(isoMatch[1]), Number(isoMatch[2]) - 1, Number(isoMatch[3]));
+        }
+
+        const date = new Date(value);
+        return isNaN(date) ? null : date;
+    }
+
    
 
 }
